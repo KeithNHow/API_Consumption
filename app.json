@@ -1,0 +1,32 @@
+{
+  "id": "5e871059-59c4-4c12-8ef5-a673cd551b4c",
+  "name": "API-Consumption",
+  "publisher": "Keith How",
+  "version": "1.0.0.0",
+  "brief": "Demonstration of API Consumption",
+  "description": "Demonstration of API Consumption",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "./logo/KNH.jpg",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "25.0.0.0",
+  "idRanges": [
+    {
+      "from": 50000,
+      "to": 50049
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "14.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
