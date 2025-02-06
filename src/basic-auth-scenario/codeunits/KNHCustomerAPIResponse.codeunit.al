@@ -59,7 +59,7 @@ codeunit 50009 "KNH Customer API Response"
         end;
 
         if IsObject then
-            ReadTheObject(CustomerObject)
+            this.ReadTheObject(CustomerObject)
         else
             this.ReadTheArray(CustomerArray);
     end;
