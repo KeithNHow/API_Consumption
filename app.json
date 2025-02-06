@@ -1,7 +1,7 @@
 {
   "id": "5e871059-59c4-4c12-8ef5-a673cd551b4c",
   "name": "API-Consumption",
-  "publisher": "Keith How",
+  "publisher": "KeithHow",
   "version": "1.0.0.0",
   "brief": "Demonstration of API Consumption",
   "description": "Demonstration of API Consumption",
@@ -13,7 +13,7 @@
   "dependencies": [],
   "screenshots": [],
   "platform": "1.0.0.0",
-  "application": "25.0.0.0",
+  "application": "25.2.0.0",
   "idRanges": [
     {
       "from": 50000,
