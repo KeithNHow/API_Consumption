@@ -5,22 +5,28 @@ Program begins with API Handler page in the core module. The page consists of th
 - No-auth employee API
 - No-auth product Hdr + lines API 
 Each group has three ref fields - Website, Url and Output
-Each group contains 5 action types - Get, Post, Put, Patch, Delete
+Each group contains action types - Get, Post, Put, Patch, Delete
 - Each action type has a get proc and an execute proc
 - The get proc returns a url to the url field
 - The execute proc performs an action
-Get - 
+Get - Reads record from api table
 Post - creates record in api table
 Put - updates all fields for record in api table
 Patch - update specific fields for record in api table
 Delete - removes record in api table
+
+GetPostPutPatchDelete Record
+----------------------------
+CheckMandatoryAndReset
+Get,Post,Put,Patch,Delete Payload (MakeContentRequest(GetContent,GetPayload))
+GetResponse(ReviewResponse)
 
 Customer table - 6 fields "No.", Name, Addr, Addr2, "Phone No.", System Id
 Employee table - 4 fields Id, Name, Salary, Age
 Product Header table - 3 fields - Id, Name, "Not Reserved"
 Product Line table - 4 fields - Id, "Line No.", Parameter, Value
 
-Log Entries table - 9 fields "Entry No.", Url, Method, Request, Response, "Response Code", Successful, "Requested By", "Logged On"
+Log Entries table - 9 fields "Entry No.", Url, Method, Request, Response, "Resp Code", Successful, "Requested By", "Logged On"
 Procs - Download Request, Download Response, Add New Entry
 
 # Basic Auth
