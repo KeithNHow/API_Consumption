@@ -6,36 +6,36 @@ codeunit 50004 "KNH Product API Integration"
     procedure GetRecords(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.client, this.GetContentwithHeader(this.PayloadGenerator.GenrateGetPayload()), this.HttpMethod::GET);
-        this.KNHAPIDataMgmt.HandleGetResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHProductAPIPayload.GetProductPayload()), this.HttpMethod::GET);
+        this.KNHProductAPIResponse.GetResponse(this.ResponseMsg);
     end;
 
     procedure PostRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.client, this.GetContentwithHeader(this.PayloadGenerator.GenratePostPayload()), this.HttpMethod::POST);
-        this.KNHAPIDataMgmt.HandlePostResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHProductAPIPayload.PostProductPayload()), this.HttpMethod::POST);
+        this.KNHProductAPIResponse.PostResponse(this.ResponseMsg);
     end;
 
     procedure PutRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.client, this.GetContentwithHeader(this.PayloadGenerator.GenratePutPayload()), this.HttpMethod::PUT);
-        this.KNHAPIDataMgmt.HandlePutResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHProductAPIPayload.PutProductPayload()), this.HttpMethod::PUT);
+        this.KNHProductAPIResponse.PutResponse(this.ResponseMsg);
     end;
 
     procedure PatchRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.client, this.GetContentwithHeader(this.PayloadGenerator.GenratePatchPayload()), this.HttpMethod::PATCH);
-        this.KNHAPIDataMgmt.HandlePatchResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHProductAPIPayload.PatchProductPayload()), this.HttpMethod::PATCH);
+        this.KNHProductAPIResponse.PatchResponse(this.ResponseMsg);
     end;
 
     procedure DeleteRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.client, this.GetContentwithHeader(this.PayloadGenerator.GenrateDeletePayload()), this.HttpMethod::DELETE);
-        this.KNHAPIDataMgmt.HandleDeleteResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHProductAPIPayload.DeleteProductPayload()), this.HttpMethod::DELETE);
+        this.KNHProductAPIResponse.DeleteResponse(this.ResponseMsg);
     end;
 
     local procedure CheckMandatoryAndReset(URLToAccess: Text)
@@ -51,25 +51,26 @@ codeunit 50004 "KNH Product API Integration"
         Clear(this.ResponseStatus);
     end;
 
-    procedure GetContentwithHeader(payload: Text) content: HttpContent
+    procedure GetContentwithHeader(Payload: Text) Content: HttpContent
     var
         contentHeaders: HttpHeaders;
     begin
         Clear(this.Client);
-        if payload <> '' then
-            content.WriteFrom(payload);
+        if Payload <> '' then
+            Content.WriteFrom(payload);
 
-        content.GetHeaders(contentHeaders);
-        contentHeaders.Clear();
-        contentHeaders.Add('Content-Type', 'application/json');
+        Content.GetHeaders(ContentHeaders);
+        ContentHeaders.Clear();
+        ContentHeaders.Add('Content-Type', 'application/json');
     end;
 
     var
         KNHRestApiMgmt: Codeunit "KNH Rest API Mgmt.";
-        PayloadGenerator: Codeunit "KNH Product API Payload";
-        KNHAPIDataMgmt: Codeunit "KNH Product API Response";
+        KNHProductAPIPayload: Codeunit "KNH Product API Payload";
+        KNHProductAPIResponse: Codeunit "KNH Product API Response";
+        Client: HttpClient;
         ResponseMsg: HttpResponseMessage;
         HttpMethod: Enum "Http Method";
         ResponseStatus: Boolean;
-        Client: HttpClient;
+
 }

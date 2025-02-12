@@ -2,33 +2,33 @@ namespace APIConsumption;
 
 codeunit 50009 "KNH Customer API Response"
 {
-    internal procedure HandleGetResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure GetResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         this.WriteRecordinDatabase(this.ResponseText);
         Message('Get Processed Succesfully!');
     end;
 
-    internal procedure HandlePostResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure PostResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         this.WriteRecordinDatabase(this.ResponseText);
         Message('Post Processed Succesfully!');
     end;
 
-    internal procedure HandlePutResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure PutResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         Message('%1', this.ResponseText);
     end;
 
-    internal procedure HandlePatchResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure PatchResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         Message('%1', this.ResponseText);
     end;
 
-    internal procedure HandleDeleteResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure DeleteResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         Message('%1', this.ResponseText);
@@ -73,12 +73,12 @@ codeunit 50009 "KNH Customer API Response"
         ResponseGUID: Guid;
         ResponseCustomerNo: Code[20];
     begin
-        clear(Responsename);
+        Clear(Responsename);
         Clear(ResponseAddress);
         Clear(ResponseAddress2);
         Clear(ResponsePhoneNo);
         Clear(ResponseGUID);
-        clear(ResponseCustomerNo);
+        Clear(ResponseCustomerNo);
 
         CustomerObject.Get('number', CustomerToken);
         ResponseCustomerNo := CopyStr(CustomerToken.AsValue().AsCode(), 1, 20);
@@ -114,18 +114,18 @@ codeunit 50009 "KNH Customer API Response"
 
     local procedure WriteHeaderInDatabase(ResponseCustomerNo: Code[20]; Responsename: Text[100]; ResponseAddress: Text[100]; ResponseAddress2: Text[50]; ResponsePhoneNo: Text[30]; ResponseGUID: Guid)
     var
-        SDHCustomer: Record "KNH Customer";
+        KNHCustomer: Record "KNH Customer";
     begin
-        if SDHCustomer.Get(ResponseCustomerNo) then
+        if KNHCustomer.Get(ResponseCustomerNo) then
             exit;
-        SDHCustomer.Init();
-        SDHCustomer.Validate("No.", ResponseCustomerNo);
-        SDHCustomer.Validate(Name, Responsename);
-        SDHCustomer.Validate(Address, ResponseAddress);
-        SDHCustomer.Validate("Address 2", ResponseAddress2);
-        SDHCustomer.Validate("Phone No.", ResponsePhoneNo);
-        SDHCustomer.Validate("Source System Id", ResponseGUID);
-        SDHCustomer.Insert(true);
+        KNHCustomer.Init();
+        KNHCustomer.Validate("No.", ResponseCustomerNo);
+        KNHCustomer.Validate(Name, Responsename);
+        KNHCustomer.Validate(Address, ResponseAddress);
+        KNHCustomer.Validate("Address 2", ResponseAddress2);
+        KNHCustomer.Validate("Phone No.", ResponsePhoneNo);
+        KNHCustomer.Validate("Source System Id", ResponseGUID);
+        KNHCustomer.Insert(true);
     end;
 
     var

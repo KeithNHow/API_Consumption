@@ -2,33 +2,33 @@ namespace APIConsumption;
 
 codeunit 50006 "KNH Product API Response"
 {
-    internal procedure HandleGetResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure GetResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         this.WriteRecordinDatabase(this.ResponseText, false);
         Message('Get Processed Succesfully!');
     end;
 
-    internal procedure HandlePostResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure PostResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         this.WriteRecordinDatabase(this.ResponseText, true);
         Message('Post Processed Succesfully!');
     end;
 
-    internal procedure HandlePutResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure PutResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         Message('%1', this.ResponseText);
     end;
 
-    internal procedure HandlePatchResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure PatchResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         Message('%1', this.ResponseText);
     end;
 
-    internal procedure HandleDeleteResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure DeleteResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         Message('%1', this.ResponseText);
@@ -69,8 +69,8 @@ codeunit 50006 "KNH Product API Response"
         Responsename: Text;
         ResponseID: Code[50];
     begin
-        clear(ResponseID);
-        clear(Responsename);
+        Clear(ResponseID);
+        Clear(Responsename);
 
         ProductObject.Get('id', ProductToken);
         ResponseID := CopyStr(ProductToken.AsValue().AsCode(), 1, 50);
@@ -87,7 +87,7 @@ codeunit 50006 "KNH Product API Response"
         parameterkeys := ProductDetailObject.Keys();
 
         for i := 1 to parameterkeys.Count() do begin
-            ProductDetailObject.get(parameterkeys.Get(i), ProductToken);
+            ProductDetailObject.Get(parameterkeys.Get(i), ProductToken);
             this.writeLineinDatabase(ResponseID, parameterkeys.Get(i), ProductToken.AsValue().AsText());
         end;
     end;
@@ -105,39 +105,39 @@ codeunit 50006 "KNH Product API Response"
 
     local procedure WriteHeaderInDatabase(ResponseID: Code[50]; Responsename: Text; IsNotReserved: Boolean)
     var
-        SDHRestNoAuthHeader: Record "KNH Product Header";
+        KNHProductNoAuthHeader: Record "KNH Product Header";
     begin
         if ResponseID = '' then
             exit;
 
-        if SDHRestNoAuthHeader.Get(ResponseID) then
+        if KNHProductNoAuthHeader.Get(ResponseID) then
             exit;
 
-        SDHRestNoAuthHeader.Init();
-        SDHRestNoAuthHeader.id := ResponseID;
-        SDHRestNoAuthHeader.name := CopyStr(Responsename, 1, 250);
-        sdhRestNoAuthHeader."Not Reserved" := IsNotReserved;
-        SDHRestNoAuthHeader.Insert(true);
+        KNHProductNoAuthHeader.Init();
+        KNHProductNoAuthHeader.id := ResponseID;
+        KNHProductNoAuthHeader.name := CopyStr(Responsename, 1, 250);
+        KNHProductNoAuthHeader."Not Reserved" := IsNotReserved;
+        KNHProductNoAuthHeader.Insert(true);
     end;
 
     local procedure writeLineinDatabase(ResponseID: Code[50]; Param: Text; Val: Text)
     var
-        SDHRestNoAuthLine: Record "KNH Product Lines";
+        KNHProductNoAuthLine: Record "KNH Product Lines";
     begin
         if ResponseID = '' then
             exit;
 
-        SDHRestNoAuthLine.SetRange("id", ResponseID);
-        SDHRestNoAuthLine.SetRange(Parameter, Param);
-        if not SDHRestNoAuthLine.IsEmpty() then
+        KNHProductNoAuthLine.SetRange("id", ResponseID);
+        KNHProductNoAuthLine.SetRange(Parameter, Param);
+        if not KNHProductNoAuthLine.IsEmpty() then
             exit;
 
-        SDHRestNoAuthLine.Init();
-        SDHRestNoAuthLine.id := ResponseID;
-        SDHRestNoAuthLine."Line No." := 0;
-        SDHRestNoAuthLine.Parameter := CopyStr(Param, 1, 250);
-        SDHRestNoAuthLine.Value := Copystr(Val, 1, 250);
-        SDHRestNoAuthLine.Insert(true);
+        KNHProductNoAuthLine.Init();
+        KNHProductNoAuthLine.id := ResponseID;
+        KNHProductNoAuthLine."Line No." := 0;
+        KNHProductNoAuthLine.Parameter := CopyStr(Param, 1, 250);
+        KNHProductNoAuthLine.Value := Copystr(Val, 1, 250);
+        KNHProductNoAuthLine.Insert(true);
     end;
 
     var

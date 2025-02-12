@@ -1,65 +1,64 @@
-//Two MakeRequest procs - Overload example
-//1 - Url, client, content, method      returns response
-//2 - Url, request, method              returns response 
+//Proc Make Content Request - Url, client, content, method - returns response
+//Proc Make Request - Url, request, method - returns response 
 
 namespace APIConsumption;
 
 codeunit 50000 "KNH Rest Api Mgmt."
 {
-    procedure MakeRequest(URLToAccess: Text; client: HttpClient; content: HttpContent; HttpMethod: Enum System.RestClient."Http Method") response: HttpResponseMessage
+    procedure MakeContentRequest(URLToAccess: Text; Client: HttpClient; Content: HttpContent; HttpMethod: Enum System.RestClient."Http Method") Response: HttpResponseMessage
     var
-        request: HttpRequestMessage;
+        Request: HttpRequestMessage;
         ResponseStatus: Boolean;
     begin
-        request.Content := content;
-        request.SetRequestUri(URLToAccess);
+        Request.Content := Content;
+        Request.SetRequestUri(URLToAccess);
 
         case HttpMethod of
             HttpMethod::GET:
-                request.Method := 'GET';
+                Request.Method := 'GET';
             HttpMethod::POST:
-                request.Method := 'POST';
+                Request.Method := 'POST';
             HttpMethod::PUT:
-                request.Method := 'PUT';
+                Request.Method := 'PUT';
             HttpMethod::PATCH:
-                request.Method := 'PATCH';
+                Request.Method := 'PATCH';
             HttpMethod::DELETE:
-                request.Method := 'DELETE';
+                Request.Method := 'DELETE';
         end;
-        ResponseStatus := client.Send(request, response);
-        this.LogApiTransaction(URLToAccess, HttpMethod, request, response, ResponseStatus);
+        ResponseStatus := Client.Send(Request, Response);
+        this.LogApiTransaction(URLToAccess, HttpMethod, Request, Response, ResponseStatus);
     end;
 
-    procedure MakeRequest(URLToAccess: Text; request: HttpRequestMessage; HttpMethod: Enum System.RestClient."Http Method") response: HttpResponseMessage
+    procedure MakeRequest(URLToAccess: Text; Request: HttpRequestMessage; HttpMethod: Enum System.RestClient."Http Method") response: HttpResponseMessage
     var
-        client: HttpClient;
+        Client: HttpClient;
         ResponseStatus: Boolean;
     begin
-        request.SetRequestUri(URLToAccess);
+        Request.SetRequestUri(URLToAccess);
 
         case HttpMethod of
             HttpMethod::GET:
-                request.Method := 'GET';
+                Request.Method := 'GET';
             HttpMethod::POST:
-                request.Method := 'POST';
+                Request.Method := 'POST';
             HttpMethod::PUT:
-                request.Method := 'PUT';
+                Request.Method := 'PUT';
             HttpMethod::PATCH:
-                request.Method := 'PATCH';
+                Request.Method := 'PATCH';
             HttpMethod::DELETE:
-                request.Method := 'DELETE';
+                Request.Method := 'DELETE';
         end;
-        ResponseStatus := client.Send(request, response);
-        this.LogApiTransaction(URLToAccess, HttpMethod, request, response, ResponseStatus);
+        ResponseStatus := Client.Send(Request, Response);
+        this.LogApiTransaction(URLToAccess, HttpMethod, Request, Response, ResponseStatus);
     end;
 
-    local procedure LogApiTransaction(URLToAccess: Text; HttpMethod: Enum System.RestClient."Http Method"; request: HttpRequestMessage; var response: HttpResponseMessage; ResponseStatus: Boolean)
+    local procedure LogApiTransaction(URLToAccess: Text; HttpMethod: Enum System.RestClient."Http Method"; Request: HttpRequestMessage; var Response: HttpResponseMessage; ResponseStatus: Boolean)
     var
         LogEntry: Record "KNH API Log Entry";
         RequestInstream, ResponseInstream : InStream;
     begin
-        request.Content.ReadAs(RequestInstream);
-        response.Content.ReadAs(ResponseInstream);
-        LogEntry.AddNewLogEntry(URLToAccess, HttpMethod, RequestInstream, ResponseInstream, response.HttpStatusCode, ResponseStatus);
+        Request.Content.ReadAs(RequestInstream);
+        Response.Content.ReadAs(ResponseInstream);
+        LogEntry.AddNewLogEntry(URLToAccess, HttpMethod, RequestInstream, ResponseInstream, Response.HttpStatusCode, ResponseStatus);
     end;
 }

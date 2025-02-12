@@ -2,12 +2,12 @@ namespace APIConsumption;
 
 codeunit 50002 "KNH Employee API Payload"
 {
-    internal procedure GenerateGetPayload() payload: Text
+    internal procedure GetEmployeePayload() payload: Text
     begin
         payload := '';
     end;
 
-    internal procedure GeneratePostPayload() Payload: Text
+    internal procedure PostEmployeePayload() Payload: Text
     var
         JsonPayload: JsonObject;
     begin
@@ -17,7 +17,7 @@ codeunit 50002 "KNH Employee API Payload"
         JsonPayload.WriteTo(Payload);
     end;
 
-    internal procedure GeneratePutPayload() Payload: Text
+    internal procedure PutEmployeePayload() Payload: Text
     var
         JsonPayload: JsonObject;
     begin
@@ -27,12 +27,12 @@ codeunit 50002 "KNH Employee API Payload"
         JsonPayload.WriteTo(Payload);
     end;
 
-    internal procedure GenratePatchPayload() payload: Text
+    internal procedure PatchEmployeePayload() payload: Text
     begin
         payload := '';
     end;
 
-    internal procedure GenrateDeletePayload() payload: Text
+    internal procedure DeleteEmployeePayload() payload: Text
     begin
         payload := '';
     end;

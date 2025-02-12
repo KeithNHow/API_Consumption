@@ -7,34 +7,34 @@ codeunit 50007 "KNH Customer API Integration"
     procedure GetRecords(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.SDHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.PayloadGenerator.GenrateGetPayload()), this.HttpMethod::GET);
-        this.SDHCustomerAPIDataMgmt.HandleGetResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.KNHCustomerAPIPayload.GetCustomerPayload()), this.HttpMethod::GET);
+        this.KNHCustomerAPIResponse.GetResponse(this.ResponseMsg);
     end;
 
     procedure PostRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.SDHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.PayloadGenerator.GenratePostPayload()), this.HttpMethod::POST);
-        this.SDHCustomerAPIDataMgmt.HandlePostResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.KNHCustomerAPIPayload.PostCustomerPayload()), this.HttpMethod::POST);
+        this.KNHCustomerAPIResponse.PostResponse(this.ResponseMsg);
     end;
 
     procedure PutRecord(URLToAccess: Text)
     begin
-        Error('This API does not support patch request.');
+        Error('This API does not support put request.');
     end;
 
     procedure PatchRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.SDHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.PayloadGenerator.GenratePatchPayload()), this.HttpMethod::PATCH);
-        this.SDHCustomerAPIDataMgmt.HandlePatchResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.KNHCustomerAPIPayload.PatchCustomerPayload()), this.HttpMethod::PATCH);
+        this.KNHCustomerAPIResponse.PatchResponse(this.ResponseMsg);
     end;
 
     procedure DeleteRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.SDHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.PayloadGenerator.GenrateDeletePayload()), this.HttpMethod::DELETE);
-        this.SDHCustomerAPIDataMgmt.HandleDeleteResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.KNHCustomerAPIPayload.DeleteCustomerPayload()), this.HttpMethod::DELETE);
+        this.KNHCustomerAPIResponse.DeleteResponse(this.ResponseMsg);
     end;
 
     local procedure CheckMandatoryAndReset(URLToAccess: Text)
@@ -100,9 +100,9 @@ codeunit 50007 "KNH Customer API Integration"
     end;
 
     var
-        SDHRestApiMgmt: Codeunit "KNH Rest API Mgmt.";
-        PayloadGenerator: Codeunit "KNH Customer API Payload";
-        SDHCustomerAPIDataMgmt: Codeunit "KNH Customer API Response";
+        KNHRestApiMgmt: Codeunit "KNH Rest API Mgmt.";
+        KNHCustomerAPIPayload: Codeunit "KNH Customer API Payload";
+        KNHCustomerAPIResponse: Codeunit "KNH Customer API Response";
         ResponseMsg: HttpResponseMessage;
         HttpMethod: Enum "Http Method";
         //client: HttpClient;

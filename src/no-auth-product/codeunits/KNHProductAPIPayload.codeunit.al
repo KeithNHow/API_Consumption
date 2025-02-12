@@ -2,40 +2,40 @@ namespace APIConsumption;
 
 codeunit 50005 "KNH Product API Payload"
 {
-    internal procedure GenrateGetPayload() payload: Text
+    internal procedure GetProductPayload() Payload: Text
     begin
-        payload := '';
+        Payload := '';
     end;
 
-    internal procedure GenratePostPayload() payload: Text
+    internal procedure PostProductPayload() Payload: Text
     var
         JsonPayload: JsonObject;
     begin
         JsonPayload.Add('name', 'Saurav dhyani');
         JsonPayload.Add('data', this.GetDataObject());
-        JsonPayload.WriteTo(payload);
+        JsonPayload.WriteTo(Payload);
     end;
 
-    internal procedure GenratePutPayload() payload: Text
+    internal procedure PutProductPayload() Payload: Text
     var
         JsonPayload: JsonObject;
     begin
         JsonPayload.Add('name', 'Put Request');
         JsonPayload.Add('data', this.GetDataObject());
-        JsonPayload.WriteTo(payload);
+        JsonPayload.WriteTo(Payload);
     end;
 
-    internal procedure GenratePatchPayload() payload: Text
+    internal procedure PatchProductPayload() Payload: Text
     var
         JsonPayload: JsonObject;
     begin
         JsonPayload.Add('name', 'Patch Request');
-        JsonPayload.WriteTo(payload);
+        JsonPayload.WriteTo(Payload);
     end;
 
-    internal procedure GenrateDeletePayload() payload: Text
+    internal procedure DeleteProductPayload() Payload: Text
     begin
-        payload := '';
+        Payload := '';
     end;
 
     local procedure GetDataObject() DataObject: JsonObject

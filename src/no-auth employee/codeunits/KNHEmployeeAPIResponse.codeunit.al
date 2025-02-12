@@ -2,32 +2,32 @@ namespace APIConsumption;
 
 codeunit 50003 "KNH Employee API Response"
 {
-    internal procedure HandleGetResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure GetResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         this.ParseEmployeeResponse(this.ResponseText);
         Message('Get Processed Succesfully!');
     end;
 
-    internal procedure HandlePostResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure PostResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         Message('%1', this.ResponseText);
     end;
 
-    internal procedure HandlePutResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure PutResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         Message('%1', this.ResponseText);
     end;
 
-    internal procedure HandlePatchResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure PatchResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         Message('%1', this.ResponseText);
     end;
 
-    internal procedure HandleDeleteResponse(ResponseMsg: HttpResponseMessage)
+    internal procedure DeleteResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
         Message('%1', this.ResponseText);
@@ -66,16 +66,16 @@ codeunit 50003 "KNH Employee API Response"
 
             EmployeeObject := EmployeeToken.AsObject();
 
-            EmployeeObject.get('id', ResultToken);
+            EmployeeObject.Get('id', ResultToken);
             ResponseID := ResultToken.AsValue().AsInteger();
 
-            EmployeeObject.get('employee_name', ResultToken);
+            EmployeeObject.Get('employee_name', ResultToken);
             ResponseName := ResultToken.AsValue().AsText();
 
-            EmployeeObject.get('employee_salary', ResultToken);
+            EmployeeObject.Get('employee_salary', ResultToken);
             ResponseSalary := ResultToken.AsValue().AsDecimal();
 
-            EmployeeObject.get('employee_age', ResultToken);
+            EmployeeObject.Get('employee_age', ResultToken);
             ResponseAge := ResultToken.AsValue().AsInteger();
 
             this.WriteRecordsinDatabase(ResponseID, ResponseName, ResponseSalary, ResponseAge);

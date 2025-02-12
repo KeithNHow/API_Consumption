@@ -2,12 +2,12 @@ namespace APIConsumption;
 
 codeunit 50008 "KNH Customer API Payload"
 {
-    internal procedure GenrateGetPayload() payload: Text
+    internal procedure GetCustomerPayload() Payload: Text
     begin
         payload := '';
     end;
 
-    internal procedure GenratePostPayload() payload: Text
+    internal procedure PostCustomerPayload() Payload: Text
     var
         JsonPayload: JsonObject;
     begin
@@ -16,14 +16,14 @@ codeunit 50008 "KNH Customer API Payload"
         JsonPayload.Add('addressLine2', 'India');
         JsonPayload.Add('phoneNumber', '7812345784');
         JsonPayload.Add('email', 'postsaurav@gmail.com');
-        JsonPayload.WriteTo(payload);
+        JsonPayload.WriteTo(Payload);
     end;
 
-    internal procedure GenratePutPayload() payload: Text
+    internal procedure PutCustomerPayload() Payload: Text
     begin
     end;
 
-    internal procedure GenratePatchPayload() payload: Text
+    internal procedure PatchCustomerPayload() Payload: Text
     var
         JsonPayload: JsonObject;
     begin
@@ -32,8 +32,8 @@ codeunit 50008 "KNH Customer API Payload"
         JsonPayload.WriteTo(payload);
     end;
 
-    internal procedure GenrateDeletePayload() payload: Text
+    internal procedure DeleteCustomerPayload() Payload: Text
     begin
-        payload := '';
+        Payload := '';
     end;
 }
