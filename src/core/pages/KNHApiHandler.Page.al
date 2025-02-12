@@ -14,7 +14,7 @@ page 50000 "KNH API Handler"
             group(Group1)
             {
                 Caption = 'No-Auth Dummy Rest API';
-                group(Group1Refrences)
+                group(Group1References)
                 {
                     Caption = 'References';
                     field(Group1AuthUrl; this.DummyAuthUrlLbl)
@@ -24,14 +24,14 @@ page 50000 "KNH API Handler"
                         Editable = false;
                         ExtendedDatatype = Url;
                     }
-                    field(Group1URLToAccess; this.DummyUrlToAccess)
+                    field(Group1UrlToAccess; this.DummyUrlToAccess)
                     {
                         Caption = 'Execute URL';
                         ToolTip = 'Specifies the value of the Execute URL field.';
                         ShowMandatory = true;
                         ExtendedDatatype = Url;
                     }
-                    field(Group1output; this.DummyNoAuthResponse)
+                    field(Group1Output; this.DummyNoAuthResponse)
                     {
                         ApplicationArea = All;
                         ExtendedDatatype = Url;
@@ -40,7 +40,7 @@ page 50000 "KNH API Handler"
                         ToolTip = 'Specifies the value of the Output field.';
                     }
                 }
-                group(Group1actions)
+                group(Group1Actions)
                 {
                     Caption = 'Actions';
                     grid(Group1Get)
@@ -151,7 +151,7 @@ page 50000 "KNH API Handler"
             group(Group2)
             {
                 Caption = 'No-Auth Restful API';
-                group(Group2Refrences)
+                group(Group2References)
                 {
                     Caption = 'References';
                     field(Group2AuthUrl; this.NoAuthUrlLbl)
@@ -161,14 +161,14 @@ page 50000 "KNH API Handler"
                         Editable = false;
                         ExtendedDatatype = Url;
                     }
-                    field(Group2URLToAccess; this.NoAuthUrlToAccess)
+                    field(Group2UrlToAccess; this.NoAuthUrlToAccess)
                     {
                         Caption = 'Execute URL';
                         ToolTip = 'Specifies the value of the Execute URL field.';
                         ShowMandatory = true;
                         ExtendedDatatype = Url;
                     }
-                    field(Group2output; this.NoAuthResponse)
+                    field(Group2Output; this.NoAuthResponse)
                     {
                         ApplicationArea = All;
                         ExtendedDatatype = Url;
@@ -177,13 +177,13 @@ page 50000 "KNH API Handler"
                         ToolTip = 'Specifies the value of the Output field.';
                     }
                 }
-                group(Group2actions)
+                group(Group2Actions)
                 {
                     Caption = 'Actions';
                     grid(Group2Get)
                     {
                         GridLayout = Columns;
-                        field(Group2GetSetURL; this.GetUrlLbl)
+                        field(Group2GetSetUrl; this.GetUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
@@ -203,7 +203,7 @@ page 50000 "KNH API Handler"
                     grid(Group2Post)
                     {
                         GridLayout = Columns;
-                        field(Group2PostSetURL; this.PostUrlLbl)
+                        field(Group2PostSetUrl; this.PostUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
@@ -223,7 +223,7 @@ page 50000 "KNH API Handler"
                     grid(Group2Put)
                     {
                         GridLayout = Columns;
-                        field(Group2PutSetURL; this.PutUrlLbl)
+                        field(Group2PutSetUrl; this.PutUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
@@ -243,7 +243,7 @@ page 50000 "KNH API Handler"
                     grid(Group2Patch)
                     {
                         GridLayout = Columns;
-                        field(Group2PatchSetURL; this.PatchUrlLbl)
+                        field(Group2PatchSetUrl; this.PatchUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
@@ -264,7 +264,7 @@ page 50000 "KNH API Handler"
                     grid(Group2Delete)
                     {
                         GridLayout = Columns;
-                        field(Group2DeleteSetURL; this.DeleteUrlLbl)
+                        field(Group2DeleteSetUrl; this.DeleteUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
@@ -287,7 +287,7 @@ page 50000 "KNH API Handler"
             group(Group3)
             {
                 Caption = 'Basic Auth API';
-                group(Group3Refrences)
+                group(Group3References)
                 {
                     Caption = 'References';
                     field(Group3AuthUrl; this.BasicAuthUrlLbl)
@@ -297,7 +297,7 @@ page 50000 "KNH API Handler"
                         Editable = false;
                         ExtendedDatatype = Url;
                     }
-                    field(Group3URLToAccess; this.BasicAuthUrlToAccess)
+                    field(Group3UrlToAccess; this.BasicAuthUrlToAccess)
                     {
                         Caption = 'Execute URL';
                         ToolTip = 'Specifies the value of the Execute URL field.';
@@ -317,7 +317,7 @@ page 50000 "KNH API Handler"
                         ExtendedDatatype = Masked;
                         ShowMandatory = true;
                     }
-                    field(Group3output; this.BasicAuthResponse)
+                    field(Group3Output; this.BasicAuthResponse)
                     {
                         ApplicationArea = All;
                         ExtendedDatatype = Url;
@@ -326,13 +326,13 @@ page 50000 "KNH API Handler"
                         ToolTip = 'Specifies the value of the Output field.';
                     }
                 }
-                group(Group3actions)
+                group(Group3Actions)
                 {
                     Caption = 'Actions';
                     grid(Group3Get)
                     {
                         GridLayout = Columns;
-                        field(Group3GetSetURL; this.GetUrlLbl)
+                        field(Group3GetSetUrl; this.GetUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
@@ -353,7 +353,7 @@ page 50000 "KNH API Handler"
                     grid(Group3Post)
                     {
                         GridLayout = Columns;
-                        field(Group3PostSetURL; this.PostUrlLbl)
+                        field(Group3PostSetUrl; this.PostUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
@@ -374,7 +374,7 @@ page 50000 "KNH API Handler"
                     grid(Group3Put)
                     {
                         GridLayout = Columns;
-                        field(Group3PutSetURL; this.PutUrlLbl)
+                        field(Group3PutSetUrl; this.PutUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
@@ -395,7 +395,7 @@ page 50000 "KNH API Handler"
                     grid(Group3Patch)
                     {
                         GridLayout = Columns;
-                        field(Group3PatchSetURL; this.PatchUrlLbl)
+                        field(Group3PatchSetUrl; this.PatchUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
@@ -417,7 +417,7 @@ page 50000 "KNH API Handler"
                     grid(Group3Delete)
                     {
                         GridLayout = Columns;
-                        field(Group3DeleteSetURL; this.DeleteUrlLbl)
+                        field(Group3DeleteSetUrl; this.DeleteUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
