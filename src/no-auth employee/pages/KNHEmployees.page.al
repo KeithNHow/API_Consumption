@@ -3,7 +3,7 @@ namespace APIConsumption;
 page 50002 "KNH Employees"
 {
     ApplicationArea = All;
-    Caption = 'Employees';
+    Caption = 'Employees API';
     PageType = List;
     Editable = false;
     SourceTable = "KNH Employee";

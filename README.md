@@ -5,8 +5,11 @@ Program begins with API Handler page in the core module. The page consists of th
 - No-auth employee API
 - No-auth product Hdr + lines API 
 Each group has three ref fields - Website, Url and Output
-Each group contains 5 actions - Get, Post, Put, Patch, Delete
-Get - returns response Url into Url field 
+Each group contains 5 action types - Get, Post, Put, Patch, Delete
+- Each action type has a get proc and an execute proc
+- The get proc returns a url to the url field
+- The execute proc performs an action
+Get - 
 Post - creates record in api table
 Put - updates all fields for record in api table
 Patch - update specific fields for record in api table

@@ -1,6 +1,6 @@
 table 50003 "KNH Product Lines"
 {
-    Caption = 'Product Lines';
+    Caption = 'Product Lines API';
     DataClassification = CustomerContent;
     LookupPageId = "KNH Product Subform";
     DrillDownPageId = "KNH Product Subform";

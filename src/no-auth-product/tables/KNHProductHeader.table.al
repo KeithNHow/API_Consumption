@@ -1,6 +1,6 @@
 table 50002 "KNH Product Header"
 {
-    Caption = 'Product Header';
+    Caption = 'Product Header API';
     DataClassification = CustomerContent;
     LookupPageId = "KNH Products";
     DrillDownPageId = "KNH Products";
