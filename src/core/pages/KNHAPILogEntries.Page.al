@@ -42,7 +42,7 @@ page 50001 "KNH API Log Entries"
                 {
                     ToolTip = 'Specifies the value of the Response Code field.';
                 }
-                field(Succesful; Rec.Succesful)
+                field(Successful; Rec.Successful)
                 {
                     ToolTip = 'Specifies the value of the Succesful field.';
                 }
@@ -81,12 +81,22 @@ page 50001 "KNH API Log Entries"
                     Rec.DownloadResponse();
                 end;
             }
+            action(DeleteAll)
+            {
+                Caption = 'Delete All';
+                ToolTip = 'Delete all entries.';
+                Image = Delete;
+                trigger OnAction()
+                begin
+                    Rec.DeleteAll();
+                end;
+            }
         }
         area(Promoted)
         {
             actionref(DownloadRequest_Ref; DownloadRequest) { }
             actionref(DownloadResponse_Ref; DownloadResponse) { }
+            actionref(DeleteAll_Ref; DeleteAll) { }
         }
     }
-
 }

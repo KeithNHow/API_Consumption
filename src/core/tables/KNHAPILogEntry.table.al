@@ -41,7 +41,7 @@ table 50000 "KNH API Log Entry"
             Caption = 'Response Code';
             ToolTip = 'Specifies the value of the Response Code field.';
         }
-        field(7; Succesful; Boolean)
+        field(7; Successful; Boolean)
         {
             Caption = 'Succesful';
             ToolTip = 'Specifies the value of the Succesful field.';
@@ -67,15 +67,15 @@ table 50000 "KNH API Log Entry"
 
     procedure DownloadRequest()
     var
-        Instr: InStream;
+        Instream: InStream;
         FileName: Text;
     begin
-        if not rec.Request.HasValue() then
+        if not Rec.Request.HasValue() then
             exit;
         Rec.SetAutoCalcFields(Request);
-        Rec.Request.CreateInStream(Instr);
+        Rec.Request.CreateInStream(Instream);
         FileName := Format(Rec."Entry No.") + '_' + Format(Rec.Method) + '_' + Rec."Requested By" + '_Request.json';
-        DownloadFromStream(Instr, 'Export Request', '', 'Json Files (*.json)|*.json', FileName);
+        DownloadFromStream(Instream, 'Export Request', '', 'Json Files (*.json)|*.json', FileName);
     end;
 
     procedure DownloadResponse()
@@ -91,33 +91,23 @@ table 50000 "KNH API Log Entry"
         DownloadFromStream(Instr, 'Export Request', '', 'Json Files (*.json)|*.json', FileName);
     end;
 
-    procedure AddNewLogEntry(URLToAccess: Text; HttpMethod: Enum System.RestClient."Http Method"; RequestStream: InStream; ResponseStream: InStream; ResponseCode: Integer; Sucess: Boolean)
+    procedure AddNewLogEntry(URLToAccess: Text; HttpMethod: Enum System.RestClient."Http Method"; RequestStream: InStream; ResponseStream: InStream; ResponseCode: Integer; Success: Boolean)
     var
         LogEntry: Record "KNH API Log Entry";
+        OutStream: OutStream;
     begin
         LogEntry.Init();
         LogEntry.URL := CopyStr(URLToAccess, 1, 2048);
         LogEntry.Method := HttpMethod;
         LogEntry."Response Code" := ResponseCode;
-        LogEntry.Succesful := Sucess;
+        LogEntry.Successful := Success;
         LogEntry."Requested By" := CopyStr(UserId, 1, 50);
         LogEntry."Logged On" := Today();
         LogEntry.Insert(true);
-        this.HandleStreams(LogEntry, RequestStream, ResponseStream);
-    end;
 
-    local procedure HandleStreams(var LogEntry: Record "KNH API Log Entry"; RequestStream: InStream; ResponseStream: InStream)
-    var
-        OutStr: OutStream;
-    begin
-        clear(OutStr);
-        LogEntry.Request.CreateOutStream(OutStr);
-        CopyStream(OutStr, RequestStream);
-        LogEntry.Modify();
-
-        clear(OutStr);
-        LogEntry.Response.CreateOutStream(OutStr);
-        CopyStream(OutStr, ResponseStream);
+        Clear(OutStream);
+        LogEntry.Request.CreateOutStream(OutStream);
+        CopyStream(OutStream, RequestStream);
         LogEntry.Modify();
     end;
 }
