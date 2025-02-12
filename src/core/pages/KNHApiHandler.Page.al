@@ -201,7 +201,7 @@ page 50000 "KNH API Handler"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects';
+                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects/1';
                             end;
                         }
                     }
@@ -213,7 +213,7 @@ page 50000 "KNH API Handler"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects';
+                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects/1';
                             end;
                         }
                         field(EmployeePostExecute; this.PostLbl)
@@ -233,7 +233,7 @@ page 50000 "KNH API Handler"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects';
+                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects/1';
                             end;
                         }
                         field(EmployeePutExecute; this.PutLbl)
@@ -273,7 +273,7 @@ page 50000 "KNH API Handler"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects';
+                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects/1';
                             end;
                         }
                         field(EmployeeDeleteExecute; this.DeleteLbl)

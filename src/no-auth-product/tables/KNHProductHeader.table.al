@@ -6,11 +6,11 @@ table 50002 "KNH Product Header"
     DrillDownPageId = "KNH Products";
     fields
     {
-        field(1; id; code[50])
+        field(1; Id; code[50])
         {
             Caption = 'id';
         }
-        field(2; name; Text[250])
+        field(2; Name; Text[250])
         {
             Caption = 'name';
         }
@@ -21,7 +21,7 @@ table 50002 "KNH Product Header"
     }
     keys
     {
-        key(PK; id)
+        key(PK; Id)
         {
             Clustered = true;
         }

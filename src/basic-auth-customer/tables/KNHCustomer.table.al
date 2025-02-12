@@ -40,6 +40,11 @@ table 50004 "KNH Customer"
             ToolTip = 'Specifies the value of the Source System Id field.';
             Editable = false;
         }
+        field(7; Email; Text[80])
+        {
+            Caption = 'Email';
+            ToolTip = 'Specifies the value of the Email field.';
+        }
     }
     keys
     {

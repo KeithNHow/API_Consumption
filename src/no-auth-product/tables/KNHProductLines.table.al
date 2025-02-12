@@ -6,7 +6,7 @@ table 50003 "KNH Product Lines"
     DrillDownPageId = "KNH Product Subform";
     fields
     {
-        field(1; id; code[50])
+        field(1; Id; code[50])
         {
             Caption = 'id';
             Editable = false;
@@ -28,7 +28,7 @@ table 50003 "KNH Product Lines"
     }
     keys
     {
-        key(PK; "id", "Line No.")
+        key(PK; "Id", "Line No.")
         {
             Clustered = true;
         }

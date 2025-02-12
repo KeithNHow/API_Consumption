@@ -11,11 +11,11 @@ codeunit 50008 "KNH Customer API Payload"
     var
         JsonPayload: JsonObject;
     begin
-        JsonPayload.Add('displayName', 'Saurav Dhyani');
-        JsonPayload.Add('addressLine1', 'Dehradun Uttrakhand');
-        JsonPayload.Add('addressLine2', 'India');
-        JsonPayload.Add('phoneNumber', '7812345784');
-        JsonPayload.Add('email', 'postsaurav@gmail.com');
+        JsonPayload.Add('Name', 'Keith How');
+        JsonPayload.Add('Address', 'Shepherds Bush');
+        JsonPayload.Add('Address 2', 'London');
+        JsonPayload.Add('Phone No.', '+44 (0) 7816 509415');
+        JsonPayload.Add('Email', 'keithhow@metronet.co.com');
         JsonPayload.WriteTo(Payload);
     end;
 
@@ -27,8 +27,8 @@ codeunit 50008 "KNH Customer API Payload"
     var
         JsonPayload: JsonObject;
     begin
-        JsonPayload.Add('displayName', 'API Patch');
-        JsonPayload.Add('phoneNumber', '9999999999');
+        JsonPayload.Add('Name', 'Mark How');
+        JsonPayload.Add('Email', 'markhow@metronet.co.uk');
         JsonPayload.WriteTo(payload);
     end;
 

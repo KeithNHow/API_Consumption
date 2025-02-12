@@ -16,19 +16,19 @@ page 50002 "KNH Employees"
         {
             repeater(General)
             {
-                field(id; Rec.id)
+                field(Id; Rec.Id)
                 {
                     ToolTip = 'Specifies the value of the ID field.';
                 }
-                field(employee_name; Rec.employee_name)
+                field(Name; Rec.Name)
                 {
                     ToolTip = 'Specifies the value of the Employee Name field.';
                 }
-                field(employee_age; Rec.employee_age)
+                field(Age; Rec.Age)
                 {
                     ToolTip = 'Specifies the value of the Employee Age field.';
                 }
-                field(employee_salary; Rec.employee_salary)
+                field(Salary; Rec.Salary)
                 {
                     ToolTip = 'Specifies the value of the Employee Salary field.';
                 }

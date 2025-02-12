@@ -11,9 +11,9 @@ codeunit 50002 "KNH Employee API Payload"
     var
         JsonPayload: JsonObject;
     begin
-        JsonPayload.Add('name', 'Saurav');
-        JsonPayload.Add('salary', 100);
-        JsonPayload.Add('age', 39);
+        JsonPayload.Add('name', 'Mary How');
+        JsonPayload.Add('salary', 25000);
+        JsonPayload.Add('age', 84);
         JsonPayload.WriteTo(Payload);
     end;
 
@@ -21,9 +21,9 @@ codeunit 50002 "KNH Employee API Payload"
     var
         JsonPayload: JsonObject;
     begin
-        JsonPayload.Add('name', 'Saurav');
-        JsonPayload.Add('salary', 100);
-        JsonPayload.Add('age', 39);
+        JsonPayload.Add('name', 'Keith How');
+        JsonPayload.Add('salary', 20000);
+        JsonPayload.Add('age', 61);
         JsonPayload.WriteTo(Payload);
     end;
 

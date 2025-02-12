@@ -94,9 +94,9 @@ codeunit 50003 "KNH Employee API Response"
 
         DemoTable.Init();
         DemoTable.Validate(id, ResponseID);
-        DemoTable.Validate(employee_name, ResponseName);
-        DemoTable.Validate(employee_salary, ResponseSalary);
-        DemoTable.Validate(employee_age, ResponseAge);
+        DemoTable.Validate(Name, ResponseName);
+        DemoTable.Validate(Salary, ResponseSalary);
+        DemoTable.Validate(Age, ResponseAge);
         DemoTable.Insert(true);
 
         Clear(ResponseID);

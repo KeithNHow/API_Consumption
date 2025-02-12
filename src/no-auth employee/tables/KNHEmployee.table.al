@@ -6,25 +6,25 @@ table 50001 "KNH Employee"
     DataClassification = CustomerContent;
     DrillDownPageId = "KNH Employees";
     LookupPageId = "KNH Employees";
-    DataCaptionFields = id, employee_name;
+    DataCaptionFields = Id, Name;
     fields
     {
-        field(1; "id"; Integer)
+        field(1; "Id"; Integer)
         {
             Caption = 'ID';
             ToolTip = 'Specifies the value of the ID field.';
         }
-        field(2; "employee_name"; Text[100])
+        field(2; "Name"; Text[100])
         {
             Caption = 'Name';
             ToolTip = 'Specifies the value of the Employee Name field.';
         }
-        field(3; "employee_salary"; Decimal)
+        field(3; "Salary"; Decimal)
         {
             Caption = 'Salary';
             ToolTip = 'Specifies the value of the Employee Salary field.';
         }
-        field(4; "employee_age"; Integer)
+        field(4; "Age"; Integer)
         {
             Caption = 'Age';
             ToolTip = 'Specifies the value of the Employee Age field.';
@@ -32,7 +32,7 @@ table 50001 "KNH Employee"
     }
     keys
     {
-        key(PK; "id")
+        key(PK; "Id")
         {
             Clustered = true;
         }
