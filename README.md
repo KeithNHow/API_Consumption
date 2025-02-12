@@ -1,5 +1,22 @@
 # Dynamics365BC-API-Consumption
-Code examples and tutorials for consuming APIs in Microsoft Dynamics 365 Business Central.
+Code examples and tutorials for consuming APIs in MS D365 BC
+Program begins with API Handler page in the core module. The page consists of three groups.
+- Basic-auth customer API
+- No-auth employee API
+- No-auth product Hdr + lines API 
+Each group has three ref fields - Website, Url and Output
+Each group contains 5 actions - Get, Post, Put, Patch, Delete
+Get - teturns response url into Url field 
+Post - creates record in api table
+Put - updates all fields for record in api table
+Patch - update specific fields for record in api table
+Delete - removes record in api table
+
+Customer table - 6 fields "No.", Name, Addr, Addr2, "Phone No.", System Id
+Employee table - 4 fields Id, Name, Salary, Age
+Product Header table - 3 fields - Id, Name, "Not Reserved"
+Product Line table - 4 fields - Id, "Line No.", Parameter, Value
+
 
 # Basic Auth
 ------------
