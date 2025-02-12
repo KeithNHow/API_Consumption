@@ -287,7 +287,7 @@ page 50000 "KNH API Handler"
             group(Group3)
             {
                 Caption = 'Basic Auth API';
-                Group(Group3Refrences)
+                group(Group3Refrences)
                 {
                     Caption = 'References';
                     field(Group3AuthUrl; this.BasicAuthUrlLbl)
