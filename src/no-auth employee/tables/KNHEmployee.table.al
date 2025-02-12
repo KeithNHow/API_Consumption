@@ -16,17 +16,17 @@ table 50001 "KNH Employee"
         }
         field(2; "employee_name"; Text[100])
         {
-            Caption = 'Employee Name';
+            Caption = 'Name';
             ToolTip = 'Specifies the value of the Employee Name field.';
         }
         field(3; "employee_salary"; Decimal)
         {
-            Caption = 'Employee Salary';
+            Caption = 'Salary';
             ToolTip = 'Specifies the value of the Employee Salary field.';
         }
         field(4; "employee_age"; Integer)
         {
-            Caption = 'Employee Age';
+            Caption = 'Age';
             ToolTip = 'Specifies the value of the Employee Age field.';
         }
     }

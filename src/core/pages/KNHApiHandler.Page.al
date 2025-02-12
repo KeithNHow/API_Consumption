@@ -13,7 +13,7 @@ page 50000 "KNH API Handler"
         {
             group(Group1)
             {
-                Caption = 'No-Auth Dummy Rest API';
+                Caption = 'No-Auth Product API';
                 group(Group1References)
                 {
                     Caption = 'References';
@@ -21,23 +21,22 @@ page 50000 "KNH API Handler"
                     {
                         Caption = 'Website';
                         ToolTip = 'Specifies the value of the Website field.';
-                        Editable = false;
                         ExtendedDatatype = Url;
+                        Editable = false;
                     }
                     field(Group1UrlToAccess; this.DummyUrlToAccess)
                     {
                         Caption = 'Execute URL';
                         ToolTip = 'Specifies the value of the Execute URL field.';
-                        ShowMandatory = true;
                         ExtendedDatatype = Url;
+                        ShowMandatory = true;
                     }
                     field(Group1Output; this.DummyNoAuthResponse)
                     {
-                        ApplicationArea = All;
-                        ExtendedDatatype = Url;
-                        Editable = false;
                         Caption = 'Output';
                         ToolTip = 'Specifies the value of the Output field.';
+                        ExtendedDatatype = Url;
+                        Editable = false;
                     }
                 }
                 group(Group1Actions)
@@ -150,7 +149,7 @@ page 50000 "KNH API Handler"
             }
             group(Group2)
             {
-                Caption = 'No-Auth Restful API';
+                Caption = 'No-Auth Employee API';
                 group(Group2References)
                 {
                     Caption = 'References';
@@ -158,23 +157,22 @@ page 50000 "KNH API Handler"
                     {
                         Caption = 'Website';
                         ToolTip = 'Specifies the value of the Website field.';
-                        Editable = false;
                         ExtendedDatatype = Url;
+                        Editable = false;
                     }
                     field(Group2UrlToAccess; this.NoAuthUrlToAccess)
                     {
                         Caption = 'Execute URL';
                         ToolTip = 'Specifies the value of the Execute URL field.';
-                        ShowMandatory = true;
                         ExtendedDatatype = Url;
+                        ShowMandatory = true;
                     }
                     field(Group2Output; this.NoAuthResponse)
                     {
-                        ApplicationArea = All;
-                        ExtendedDatatype = Url;
-                        Editable = false;
                         Caption = 'Output';
                         ToolTip = 'Specifies the value of the Output field.';
+                        ExtendedDatatype = Url;
+                        Editable = false;
                     }
                 }
                 group(Group2Actions)
@@ -286,7 +284,7 @@ page 50000 "KNH API Handler"
             }
             group(Group3)
             {
-                Caption = 'Basic Auth API';
+                Caption = 'Basic Auth Customer API';
                 group(Group3References)
                 {
                     Caption = 'References';
@@ -294,15 +292,15 @@ page 50000 "KNH API Handler"
                     {
                         Caption = 'Website';
                         ToolTip = 'Specifies the value of the Website field.';
-                        Editable = false;
                         ExtendedDatatype = Url;
+                        Editable = false;
                     }
                     field(Group3UrlToAccess; this.BasicAuthUrlToAccess)
                     {
                         Caption = 'Execute URL';
                         ToolTip = 'Specifies the value of the Execute URL field.';
-                        ShowMandatory = true;
                         ExtendedDatatype = Url;
+                        ShowMandatory = true;
                     }
                     field(Username; this.Username)
                     {
@@ -319,11 +317,10 @@ page 50000 "KNH API Handler"
                     }
                     field(Group3Output; this.BasicAuthResponse)
                     {
-                        ApplicationArea = All;
-                        ExtendedDatatype = Url;
-                        Editable = false;
                         Caption = 'Output';
                         ToolTip = 'Specifies the value of the Output field.';
+                        ExtendedDatatype = Url;
+                        Editable = false;
                     }
                 }
                 group(Group3Actions)
