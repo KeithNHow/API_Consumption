@@ -72,5 +72,4 @@ codeunit 50004 "KNH Product API Integration"
         ResponseMsg: HttpResponseMessage;
         HttpMethod: Enum "Http Method";
         ResponseStatus: Boolean;
-
 }
