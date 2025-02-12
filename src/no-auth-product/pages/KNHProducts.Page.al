@@ -2,7 +2,7 @@ namespace APIConsumption;
 
 page 50004 "KNH Products"
 {
-    Caption = 'Products API';
+    Caption = 'Products Import';
     PageType = List;
     DataCaptionFields = id, name;
     CardPageId = "KNH Product";

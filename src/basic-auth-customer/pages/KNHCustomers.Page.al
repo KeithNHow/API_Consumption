@@ -3,7 +3,7 @@ namespace APIConsumption;
 page 50007 "KNH Customers"
 {
     ApplicationArea = All;
-    Caption = 'Customers API';
+    Caption = 'Customers Import';
     PageType = List;
     SourceTable = "KNH Customer";
     CardPageId = "KNH Customer";

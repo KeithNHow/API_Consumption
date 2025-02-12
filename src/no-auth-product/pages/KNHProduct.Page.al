@@ -4,7 +4,7 @@ page 50005 "KNH Product"
 {
     ApplicationArea = All;
     UsageCategory = Lists;
-    Caption = 'Product API';
+    Caption = 'Product Import';
     PageType = Document;
     RefreshOnActivate = true;
     DataCaptionFields = id, name;

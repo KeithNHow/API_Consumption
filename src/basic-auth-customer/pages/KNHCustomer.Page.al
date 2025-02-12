@@ -4,7 +4,7 @@ page 50008 "KNH Customer"
 {
     ApplicationArea = All;
     UsageCategory = Lists;
-    Caption = 'Customer API';
+    Caption = 'Customer Import';
     PageType = Card;
     SourceTable = "KNH Customer";
 

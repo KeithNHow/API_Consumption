@@ -3,7 +3,7 @@ namespace APIConsumption;
 page 50006 "KNH Product Subform"
 {
     ApplicationArea = All;
-    Caption = 'Product Lines API';
+    Caption = 'Product Lines Import';
     PageType = ListPart;
     SourceTable = "KNH Product Lines";
 

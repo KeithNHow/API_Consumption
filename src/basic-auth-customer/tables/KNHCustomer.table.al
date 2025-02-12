@@ -2,7 +2,7 @@ namespace APIConsumption;
 
 table 50004 "KNH Customer"
 {
-    Caption = 'Customers API';
+    Caption = 'Customers Import';
     LookupPageId = "KNH Customer";
     DrillDownPageId = "KNH Customer";
     DataClassification = CustomerContent;
