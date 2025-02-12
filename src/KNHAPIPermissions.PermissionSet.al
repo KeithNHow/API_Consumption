@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-permissionset 50000 "SDH API Permissions"
+permissionset 50000 "KNH API Permissions"
 {
     Assignable = true;
     Caption = 'API Permissions', MaxLength = 30;
