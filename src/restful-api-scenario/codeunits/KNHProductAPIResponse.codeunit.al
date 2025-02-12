@@ -55,7 +55,7 @@ codeunit 50006 "KNH Product API Response"
                 Error('Invalid JSON format');
 
         if IsObject then
-            ReadTheObject(ProductObject, IsNotReserved)
+            this.ReadTheObject(ProductObject, IsNotReserved)
         else
             this.ReadTheArray(ProductArray, IsNotReserved);
     end;
