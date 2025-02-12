@@ -1,3 +1,7 @@
+//Two MakeRequest procs - Overload example
+//1 - Url, client, content, method      returns response
+//2 - Url, request, method              returns response 
+
 namespace APIConsumption;
 
 codeunit 50000 "KNH Rest Api Mgmt."

@@ -11,27 +11,27 @@ page 50000 "KNH API Handler"
     {
         area(Content)
         {
-            group(Group1)
+            group(Product)
             {
                 Caption = 'No-Auth Product API';
-                group(Group1References)
+                group(ProductReferences)
                 {
                     Caption = 'References';
-                    field(Group1AuthUrl; this.DummyAuthUrlLbl)
+                    field(ProductAuthUrl; this.ProductAuthUrlLbl)
                     {
                         Caption = 'Website';
                         ToolTip = 'Specifies the value of the Website field.';
                         ExtendedDatatype = Url;
                         Editable = false;
                     }
-                    field(Group1UrlToAccess; this.DummyUrlToAccess)
+                    field(ProductUrlToAccess; this.ProductUrlToAccess)
                     {
                         Caption = 'Execute URL';
                         ToolTip = 'Specifies the value of the Execute URL field.';
                         ExtendedDatatype = Url;
                         ShowMandatory = true;
                     }
-                    field(Group1Output; this.DummyNoAuthResponse)
+                    field(ProductOutput; this.ProductNoAuthResponse)
                     {
                         Caption = 'Output';
                         ToolTip = 'Specifies the value of the Output field.';
@@ -39,135 +39,124 @@ page 50000 "KNH API Handler"
                         Editable = false;
                     }
                 }
-                group(Group1Actions)
+                group(ProductActions)
                 {
                     Caption = 'Actions';
-                    grid(Group1Get)
+                    grid(ProductGet)
                     {
                         GridLayout = Columns;
-                        field(Group1GetSetURL; this.GetUrlLbl)
+                        field(ProductGetSetURL; this.GetUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.DummyUrlToAccess := 'https://dummy.restapiexample.com/api/v1/employees';
-                            end;
-                        }
-                        field(Group1GetExecute; this.GetLbl)
-                        {
-                            ShowCaption = false;
-                            trigger OnDrillDown()
-                            begin
-                                this.DummyRestAPIReqResMgmt.GetRecord(this.DummyUrlToAccess);
+                                this.ProductUrlToAccess := 'https://dummy.restapiexample.com/api/v1/objects';
                             end;
                         }
                     }
-                    grid(Group1Post)
+                    grid(ProductPost)
                     {
                         GridLayout = Columns;
-                        field(Group1PostSetURL; this.PostUrlLbl)
+                        field(ProductPostSetURL; this.PostUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.DummyUrlToAccess := 'https://dummy.restapiexample.com/api/v1/create';
+                                this.ProductUrlToAccess := 'https://dummy.restapiexample.com/api/v1/objects';
                             end;
                         }
-                        field(Group1PostExecute; this.PostLbl)
+                        field(ProductPostExecute; this.PostLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.DummyRestAPIReqResMgmt.PostRecord(this.DummyUrlToAccess);
+                                this.KNHProductAPIIntegration.PostRecord(this.ProductUrlToAccess);
                             end;
                         }
                     }
-                    grid(Group1Put)
+                    grid(ProductPut)
                     {
                         GridLayout = Columns;
-                        field(Group1PutSetURL; this.PutUrlLbl)
+                        field(ProductPutSetURL; this.PutUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.DummyUrlToAccess := 'https://dummy.restapiexample.com/api/v1/update/%1';
+                                this.ProductUrlToAccess := 'https://dummy.restapiexample.com/api/v1/objects';
                             end;
                         }
-                        field(Group1PutExecute; this.PutLbl)
+                        field(ProductPutExecute; this.PutLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.DummyRestAPIReqResMgmt.PutRecord(this.DummyUrlToAccess);
+                                this.KNHProductAPIIntegration.PutRecord(this.ProductUrlToAccess);
                             end;
                         }
                     }
-                    grid(Group1Patch)
+                    grid(ProductPatch)
                     {
                         GridLayout = Columns;
-                        field(Group1PatchSetURL; this.PatchUrlLbl)
+                        field(ProductPatchSetURL; this.PatchUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.NoAuthUrlToAccess := 'https://dummy.restapiexample.com/api/v1/update/%1';
+                                this.ProductUrlToAccess := 'https://dummy.restapiexample.com/api/v1/objects';
                             end;
                         }
-                        field(Group1PatchExecute; this.PatchLbl)
+                        field(ProductPatchExecute; this.PatchLbl)
                         {
-                            ApplicationArea = All;
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.DummyRestAPIReqResMgmt.PatchRecord(this.DummyUrlToAccess);
+                                this.KNHProductAPIIntegration.PatchRecord(this.ProductUrlToAccess);
                             end;
                         }
                     }
-                    grid(Group1Delete)
+                    grid(ProductDelete)
                     {
                         GridLayout = Columns;
-                        field(Group1DeleteSetURL; this.DeleteUrlLbl)
+                        field(ProductDeleteSetURL; this.DeleteUrlLbl)
                         {
-                            ApplicationArea = All;
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.DummyUrlToAccess := 'https://dummy.restapiexample.com/api/v1/delete/%1';
+                                this.ProductUrlToAccess := 'https://dummy.restapiexample.com/api/v1/objects';
                             end;
                         }
-                        field(Group1DeleteExecute; this.DeleteLbl)
+                        field(ProductDeleteExecute; this.DeleteLbl)
                         {
-                            ApplicationArea = All;
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.DummyRestAPIReqResMgmt.DeleteRecord(this.DummyUrlToAccess);
+                                this.KNHProductAPIIntegration.DeleteRecord(this.ProductUrlToAccess);
                             end;
                         }
                     }
                 }
             }
-            group(Group2)
+            group(Employee)
             {
                 Caption = 'No-Auth Employee API';
-                group(Group2References)
+                group(EmployeeReferences)
                 {
                     Caption = 'References';
-                    field(Group2AuthUrl; this.NoAuthUrlLbl)
+                    field(EmployeeAuthUrl; this.EmployeeAuthUrlLbl)
                     {
                         Caption = 'Website';
                         ToolTip = 'Specifies the value of the Website field.';
                         ExtendedDatatype = Url;
                         Editable = false;
                     }
-                    field(Group2UrlToAccess; this.NoAuthUrlToAccess)
+                    field(EmployeeUrlToAccess; this.EmployeeUrlToAccess)
                     {
                         Caption = 'Execute URL';
                         ToolTip = 'Specifies the value of the Execute URL field.';
                         ExtendedDatatype = Url;
                         ShowMandatory = true;
                     }
-                    field(Group2Output; this.NoAuthResponse)
+                    field(EmployeeOutput; this.EmployeeNoAuthResponse)
                     {
                         Caption = 'Output';
                         ToolTip = 'Specifies the value of the Output field.';
@@ -175,127 +164,117 @@ page 50000 "KNH API Handler"
                         Editable = false;
                     }
                 }
-                group(Group2Actions)
+                group(EmployeeActions)
                 {
                     Caption = 'Actions';
-                    grid(Group2Get)
+                    grid(EmployeeGet)
                     {
                         GridLayout = Columns;
-                        field(Group2GetSetUrl; this.GetUrlLbl)
+                        field(EmployeeGetSetUrl; this.GetUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.NoAuthUrlToAccess := 'https://api.restful-api.dev/objects';
-                            end;
-                        }
-                        field(Group2GetExecute; this.GetLbl)
-                        {
-                            ShowCaption = false;
-                            trigger OnDrillDown()
-                            begin
-                                this.APINoAuthReqResMgmt.GetRecords(this.NoAuthUrlToAccess);
+                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects';
                             end;
                         }
                     }
-                    grid(Group2Post)
+                    grid(EmployeePost)
                     {
                         GridLayout = Columns;
-                        field(Group2PostSetUrl; this.PostUrlLbl)
+                        field(EmployeePostSetUrl; this.PostUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.NoAuthUrlToAccess := 'https://api.restful-api.dev/objects';
+                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects';
                             end;
                         }
-                        field(Group2PostExecute; this.PostLbl)
+                        field(EmployeePostExecute; this.PostLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.APINoAuthReqResMgmt.PostRecord(this.NoAuthUrlToAccess);
+                                this.KNHEmployeeAPIIntegration.PostRecord(this.EmployeeUrlToAccess);
                             end;
                         }
                     }
-                    grid(Group2Put)
+                    grid(EmployeePut)
                     {
                         GridLayout = Columns;
-                        field(Group2PutSetUrl; this.PutUrlLbl)
+                        field(EmployeePutSetUrl; this.PutUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.NoAuthUrlToAccess := 'https://api.restful-api.dev/objects/%1';
+                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects';
                             end;
                         }
-                        field(Group2PutExecute; this.PutLbl)
+                        field(EmployeePutExecute; this.PutLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.APINoAuthReqResMgmt.PutRecord(this.NoAuthUrlToAccess);
+                                this.KNHEmployeeAPIIntegration.PutRecord(this.EmployeeUrlToAccess);
                             end;
                         }
                     }
-                    grid(Group2Patch)
+                    grid(EmployeePatch)
                     {
                         GridLayout = Columns;
-                        field(Group2PatchSetUrl; this.PatchUrlLbl)
+                        field(EmployeePatchSetUrl; this.PatchUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.NoAuthUrlToAccess := 'https://api.restful-api.dev/objects/%1';
+                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects';
                             end;
                         }
-                        field(Group2PatchExecute; this.PatchLbl)
+                        field(EmployeePatchExecute; this.PatchLbl)
                         {
-                            ApplicationArea = All;
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.APINoAuthReqResMgmt.PatchRecord(this.NoAuthUrlToAccess);
+                                this.KNHEmployeeAPIIntegration.PatchRecord(this.EmployeeUrlToAccess);
                             end;
                         }
                     }
-                    grid(Group2Delete)
+                    grid(EmployeeDelete)
                     {
                         GridLayout = Columns;
-                        field(Group2DeleteSetUrl; this.DeleteUrlLbl)
+                        field(EmployeeDeleteSetUrl; this.DeleteUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.NoAuthUrlToAccess := 'https://api.restful-api.dev/objects/%1';
+                                this.EmployeeUrlToAccess := 'https://api.restful-api.dev/objects';
                             end;
                         }
-                        field(Group2DeleteExecute; this.DeleteLbl)
+                        field(EmployeeDeleteExecute; this.DeleteLbl)
                         {
-                            ApplicationArea = All;
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.APINoAuthReqResMgmt.DeleteRecord(this.NoAuthUrlToAccess);
+                                this.KNHEmployeeAPIIntegration.DeleteRecord(this.EmployeeUrlToAccess);
                             end;
                         }
                     }
                 }
             }
-            group(Group3)
+            group(Customer)
             {
                 Caption = 'Basic Auth Customer API';
-                group(Group3References)
+                group(CustomerReferences)
                 {
                     Caption = 'References';
-                    field(Group3AuthUrl; this.BasicAuthUrlLbl)
+                    field(CustomerAuthUrl; this.BasicAuthUrlLbl)
                     {
                         Caption = 'Website';
                         ToolTip = 'Specifies the value of the Website field.';
                         ExtendedDatatype = Url;
                         Editable = false;
                     }
-                    field(Group3UrlToAccess; this.BasicAuthUrlToAccess)
+                    field(CustomerUrlToAccess; this.CustBasicAuthUrlToAccess)
                     {
                         Caption = 'Execute URL';
                         ToolTip = 'Specifies the value of the Execute URL field.';
@@ -315,7 +294,7 @@ page 50000 "KNH API Handler"
                         ExtendedDatatype = Masked;
                         ShowMandatory = true;
                     }
-                    field(Group3Output; this.BasicAuthResponse)
+                    field(CustomerOutput; this.CustBasicAuthResponse)
                     {
                         Caption = 'Output';
                         ToolTip = 'Specifies the value of the Output field.';
@@ -323,113 +302,111 @@ page 50000 "KNH API Handler"
                         Editable = false;
                     }
                 }
-                group(Group3Actions)
+                group(CustomerActions)
                 {
                     Caption = 'Actions';
-                    grid(Group3Get)
+                    grid(CustomerGet)
                     {
                         GridLayout = Columns;
-                        field(Group3GetSetUrl; this.GetUrlLbl)
+                        field(CustomerGetSetUrl; this.GetUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.BasicAuthUrlToAccess := 'http://localhost:7048/BC240/api/v2.0/companies(9de49c12-b738-ef11-8e52-6045bdaca463)/customers';
+                                this.CustBasicAuthUrlToAccess := 'http://localhost:7048/BC250/api/v2.0/companies(dd117d67-3f89-ef11-8a6d-7c1e521d1853)/customers';
                             end;
                         }
-                        field(Group3GetExecute; this.GetLbl)
+                        field(CustomerGetExecute; this.GetLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.BasicAuthReqResMgmt.SetUsernameandPassword(this.Username, this.Password);
-                                this.BasicAuthReqResMgmt.GetRecords(this.BasicAuthUrlToAccess);
+                                this.KNHCustomerAPIIntegration.SetUsernameandPassword(this.Username, this.Password);
+                                this.KNHCustomerAPIIntegration.GetRecords(this.CustBasicAuthUrlToAccess);
                             end;
                         }
                     }
-                    grid(Group3Post)
+                    grid(CustomerPost)
                     {
                         GridLayout = Columns;
-                        field(Group3PostSetUrl; this.PostUrlLbl)
+                        field(CustomerPostSetUrl; this.PostUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.BasicAuthUrlToAccess := 'http://localhost:7048/BC240/api/v2.0/companies(9de49c12-b738-ef11-8e52-6045bdaca463)/customers';
+                                this.CustBasicAuthUrlToAccess := 'http://localhost:7048/BC250/api/v2.0/companies(dd117d67-3f89-ef11-8a6d-7c1e521d1853)/customers';
                             end;
                         }
-                        field(Group3PostExecute; this.PostLbl)
+                        field(CustomerExecute; this.PostLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.BasicAuthReqResMgmt.SetUsernameandPassword(this.Username, this.Password);
-                                this.BasicAuthReqResMgmt.PostRecord(this.BasicAuthUrlToAccess);
+                                this.KNHCustomerAPIIntegration.SetUsernameandPassword(this.Username, this.Password);
+                                this.KNHCustomerAPIIntegration.PostRecord(this.CustBasicAuthUrlToAccess);
                             end;
                         }
                     }
-                    grid(Group3Put)
+                    grid(CustomerPut)
                     {
                         GridLayout = Columns;
-                        field(Group3PutSetUrl; this.PutUrlLbl)
+                        field(CustomerPutSetUrl; this.PutUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.BasicAuthUrlToAccess := 'http://localhost:7048/BC240/api/v2.0/companies(9de49c12-b738-ef11-8e52-6045bdaca463)/customers';
+                                this.CustBasicAuthUrlToAccess := 'http://localhost:7048/BC250/api/v2.0/companies(dd117d67-3f89-ef11-8a6d-7c1e521d1853)/customers';
                             end;
                         }
-                        field(Group3PutExecute; this.PutLbl)
+                        field(CustomerPutExecute; this.PutLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.BasicAuthReqResMgmt.SetUsernameandPassword(this.Username, this.Password);
-                                this.BasicAuthReqResMgmt.PutRecord(this.BasicAuthUrlToAccess);
+                                this.KNHCustomerAPIIntegration.SetUsernameandPassword(this.Username, this.Password);
+                                this.KNHCustomerAPIIntegration.PutRecord(this.CustBasicAuthUrlToAccess);
                             end;
                         }
                     }
-                    grid(Group3Patch)
+                    grid(CustomerPatch)
                     {
                         GridLayout = Columns;
-                        field(Group3PatchSetUrl; this.PatchUrlLbl)
+                        field(CustomerPatchSetUrl; this.PatchUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.BasicAuthUrlToAccess := 'http://localhost:7048/BC240/api/v2.0/companies(9de49c12-b738-ef11-8e52-6045bdaca463)/customers(%1)';
+                                this.CustBasicAuthUrlToAccess := 'http://localhost:7048/BC250/api/v2.0/companies(dd117d67-3f89-ef11-8a6d-7c1e521d1853)/customers';
                             end;
                         }
-                        field(Group3PatchExecute; this.PatchLbl)
+                        field(CustomerPatchExecute; this.PatchLbl)
                         {
-                            ApplicationArea = All;
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.BasicAuthReqResMgmt.SetUsernameandPassword(this.Username, this.Password);
-                                this.BasicAuthReqResMgmt.PatchRecord(this.BasicAuthUrlToAccess);
+                                this.KNHCustomerAPIIntegration.SetUsernameandPassword(this.Username, this.Password);
+                                this.KNHCustomerAPIIntegration.PatchRecord(this.CustBasicAuthUrlToAccess);
                             end;
                         }
                     }
-                    grid(Group3Delete)
+                    grid(CustomerDelete)
                     {
                         GridLayout = Columns;
-                        field(Group3DeleteSetUrl; this.DeleteUrlLbl)
+                        field(CustomerDeleteSetUrl; this.DeleteUrlLbl)
                         {
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.BasicAuthUrlToAccess := 'http://localhost:7048/BC240/api/v2.0/companies(9de49c12-b738-ef11-8e52-6045bdaca463)/customers(%1)';
+                                this.CustBasicAuthUrlToAccess := 'http://localhost:7048/BC250/api/v2.0/companies(dd117d67-3f89-ef11-8a6d-7c1e521d1853)/customers';
                             end;
                         }
-                        field(Group3DeleteExecute; this.DeleteLbl)
+                        field(CustomerDeleteExecute; this.DeleteLbl)
                         {
-                            ApplicationArea = All;
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.BasicAuthReqResMgmt.SetUsernameandPassword(this.Username, this.Password);
-                                this.BasicAuthReqResMgmt.DeleteRecord(this.BasicAuthUrlToAccess);
+                                this.KNHCustomerAPIIntegration.SetUsernameandPassword(this.Username, this.Password);
+                                this.KNHCustomerAPIIntegration.DeleteRecord(this.CustBasicAuthUrlToAccess);
                             end;
                         }
                     }
@@ -443,34 +420,55 @@ page 50000 "KNH API Handler"
         {
             action(LogEntries)
             {
-                ApplicationArea = All;
                 ToolTip = 'Shows the log entries.';
                 Image = ErrorLog;
                 RunObject = Page "KNH API Log Entries";
             }
+            action(CustomerAPI)
+            {
+                ToolTip = 'Shows the Customer API.';
+                Image = Customer;
+                RunObject = Page "KNH Customers";
+            }
+            action(EmployeeAPI)
+            {
+                ToolTip = 'Shows the Employee API.';
+                Image = Employee;
+                RunObject = Page "KNH Employees";
+            }
+            action(ProductAPI)
+            {
+                ToolTip = 'Shows the Product API.';
+                Image = Item;
+                RunObject = Page "KNH Products";
+            }
         }
+
         area(Promoted)
         {
             actionref(LogEntries_Ref; LogEntries) { }
+            actionref(CustomerAPI_Ref; CustomerAPI) { }
+            actionref(EmployeeAPI_Ref; EmployeeAPI) { }
+            actionref(ProductAPI_Ref; ProductAPI) { }
         }
     }
 
     trigger OnOpenPage()
     begin
-        this.NoAuthResponse := CopyStr(GetUrl(ClientType::Web, CompanyName, ObjectType::Page, Page::"KNH Products"), 1, 1024);
-        this.DummyNoAuthResponse := CopyStr(GetUrl(ClientType::Web, CompanyName, ObjectType::Page, Page::"KNH Employees"), 1, 1024);
-        this.BasicAuthResponse := CopyStr(GetUrl(ClientType::Web, CompanyName, ObjectType::Page, Page::"KNH Customer"), 1, 1024);
+        this.ProductNoAuthResponse := CopyStr(GetUrl(ClientType::Web, CompanyName, ObjectType::Page, Page::"KNH Products"), 1, 1024);
+        this.EmployeeNoAuthResponse := CopyStr(GetUrl(ClientType::Web, CompanyName, ObjectType::Page, Page::"KNH Employees"), 1, 1024);
+        this.CustBasicAuthResponse := CopyStr(GetUrl(ClientType::Web, CompanyName, ObjectType::Page, Page::"KNH Customer"), 1, 1024);
     end;
 
     var
-        BasicAuthReqResMgmt: Codeunit "KNH Customer API Integration";
-        APINoAuthReqResMgmt: Codeunit "KNH Product API Integration";
-        DummyRestAPIReqResMgmt: Codeunit "KNH Employee API Integration";
-        NoAuthUrlToAccess, DummyUrlToAccess, BasicAuthUrlToAccess : Text[1024];
-        NoAuthResponse, DummyNoAuthResponse, BasicAuthResponse : Text[1024];
+        KNHCustomerAPIIntegration: Codeunit "KNH Customer API Integration";
+        KNHProductAPIIntegration: Codeunit "KNH Product API Integration";
+        KNHEmployeeAPIIntegration: Codeunit "KNH Employee API Integration";
+        ProductUrlToAccess, EmployeeUrlToAccess, CustBasicAuthUrlToAccess : Text[1024];
+        ProductNoAuthResponse, EmployeeNoAuthResponse, CustBasicAuthResponse : Text[1024];
         Username, Password : Text;
-        NoAuthUrlLbl: Label 'https://restful-api.dev/';
-        DummyAuthUrlLbl: Label 'https://dummy.restapiexample.com/';
+        EmployeeAuthUrlLbl: Label 'https://restful-api.dev/';
+        ProductAuthUrlLbl: Label 'https://dummy.restapiexample.com/';
         BasicAuthUrlLbl: Label 'https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_customer';
         GetLbl: Label 'Get';
         PostLbl: Label 'Post';
