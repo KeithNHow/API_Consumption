@@ -6,7 +6,7 @@ Program begins with API Handler page in the core module. The page consists of th
 - No-auth product Hdr + lines API 
 Each group has three ref fields - Website, Url and Output
 Each group contains 5 actions - Get, Post, Put, Patch, Delete
-Get - teturns response url into Url field 
+Get - returns response Url into Url field 
 Post - creates record in api table
 Put - updates all fields for record in api table
 Patch - update specific fields for record in api table
@@ -17,6 +17,8 @@ Employee table - 4 fields Id, Name, Salary, Age
 Product Header table - 3 fields - Id, Name, "Not Reserved"
 Product Line table - 4 fields - Id, "Line No.", Parameter, Value
 
+Log Entries table - 9 fields "Entry No.", Url, Method, Request, Response, "Response Code", Successful, "Requested By", "Logged On"
+Procs - Download Request, Download Response, Add New Entry
 
 # Basic Auth
 ------------
