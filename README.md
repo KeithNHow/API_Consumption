@@ -18,7 +18,7 @@ Delete - removes record in api table
 GetPostPutPatchDelete Record
 ----------------------------
 CheckMandatoryAndReset
-Get,Post,Put,Patch,Delete Payload (MakeContentRequest(GetContent,GetPayload))
+Get,Post,Put,Patch,Delete Payload (MakeContentRequest(PostPayload,GetContent,MakeContent))
 GetResponse(ReviewResponse)
 
 Customer table - 6 fields "No.", Name, Addr, Addr2, "Phone No.", System Id

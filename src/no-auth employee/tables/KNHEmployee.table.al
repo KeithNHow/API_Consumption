@@ -39,10 +39,8 @@ table 50001 "KNH Employee"
     }
 
     internal procedure DeleteAllImported()
-    var
-        Employees: Record "KNH Employee";
     begin
-        if not Employees.IsEmpty() then
-            Employees.DeleteAll(true);
+        if not this.IsEmpty() then
+            this.DeleteAll(true);
     end;
 }

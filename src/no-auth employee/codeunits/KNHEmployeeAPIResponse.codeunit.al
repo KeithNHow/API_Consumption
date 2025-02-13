@@ -10,9 +10,12 @@ codeunit 50003 "KNH Employee API Response"
     end;
 
     internal procedure PostResponse(ResponseMsg: HttpResponseMessage)
+    var
+        ResponseLbl: Text;
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
-        Message('%1', this.ResponseText);
+        ResponseLbl := 'Http Status Code = ' + Format(ResponseMsg.HttpStatusCode) + ' ' + this.ResponseText;
+        Message('%1', ResponseLbl);
     end;
 
     internal procedure PutResponse(ResponseMsg: HttpResponseMessage)
