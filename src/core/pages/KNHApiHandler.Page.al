@@ -483,8 +483,8 @@ page 50000 "KNH API Handler"
         ProductUrlToAccess, EmployeeUrlToAccess, CustBasicAuthUrlToAccess : Text[1024];
         ProductNoAuthResponse, EmployeeNoAuthResponse, CustBasicAuthResponse : Text[1024];
         Username, Password : Text;
-        EmployeeAuthUrlLbl: Label 'https://restful-api.dev/';
-        ProductAuthUrlLbl: Label 'https://dummy.restapiexample.com/';
+        EmployeeAuthUrlLbl: Label 'https://dummy.restapiexample.com/';
+        ProductAuthUrlLbl: Label 'https://restful-api.dev/';
         CustBasicAuthUrlLbl: Label 'https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_customer';
         GetLbl: Label 'Get';
         PostLbl: Label 'Post';
