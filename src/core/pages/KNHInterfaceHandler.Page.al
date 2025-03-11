@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-page 50000 "KNH API Handler"
+page 50000 "KNH Interface Handler"
 {
     Caption = 'API Handler';
     PageType = Card;
@@ -438,7 +438,7 @@ page 50000 "KNH API Handler"
             {
                 ToolTip = 'Shows the log entries.';
                 Image = ErrorLog;
-                RunObject = Page "KNH API Log Entries";
+                RunObject = Page "KNH Interface Log Entries";
             }
             action(CustomerAPI)
             {

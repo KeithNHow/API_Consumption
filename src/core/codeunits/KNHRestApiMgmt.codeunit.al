@@ -54,7 +54,7 @@ codeunit 50000 "KNH Rest Api Mgmt."
 
     local procedure LogApiTransaction(URLToAccess: Text; HttpMethod: Enum System.RestClient."Http Method"; Request: HttpRequestMessage; var Response: HttpResponseMessage; ResponseStatus: Boolean)
     var
-        LogEntry: Record "KNH API Log Entry";
+        LogEntry: Record "KNH Interface Log Entry";
         RequestInstream, ResponseInstream : InStream;
     begin
         Request.Content.ReadAs(RequestInstream);

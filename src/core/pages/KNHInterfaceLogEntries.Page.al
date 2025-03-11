@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-page 50001 "KNH API Log Entries"
+page 50001 "KNH Interface Log Entries"
 {
     ApplicationArea = All;
     Caption = 'API Log Entries';
@@ -9,7 +9,7 @@ page 50001 "KNH API Log Entries"
     InsertAllowed = false;
     DeleteAllowed = false;
     ModifyAllowed = false;
-    SourceTable = "KNH API Log Entry";
+    SourceTable = "KNH Interface Log Entry";
     UsageCategory = History;
 
     layout

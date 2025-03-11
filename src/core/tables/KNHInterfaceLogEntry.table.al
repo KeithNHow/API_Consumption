@@ -1,12 +1,12 @@
 namespace APIConsumption;
 using System.RestClient;
 
-table 50000 "KNH API Log Entry"
+table 50000 "KNH Interface Log Entry"
 {
     Caption = 'API Log Entries';
     DataClassification = CustomerContent;
-    LookupPageId = "KNH API Log Entries";
-    DrillDownPageId = "KNH API Log Entries";
+    LookupPageId = "KNH Interface Log Entries";
+    DrillDownPageId = "KNH Interface Log Entries";
     fields
     {
         field(1; "Entry No."; Integer)
@@ -93,7 +93,7 @@ table 50000 "KNH API Log Entry"
 
     procedure AddNewLogEntry(URLToAccess: Text; HttpMethod: Enum System.RestClient."Http Method"; RequestStream: InStream; ResponseStream: InStream; ResponseCode: Integer; Success: Boolean)
     var
-        LogEntry: Record "KNH API Log Entry";
+        LogEntry: Record "KNH Interface Log Entry";
         OutStream: OutStream;
     begin
         LogEntry.Init();
