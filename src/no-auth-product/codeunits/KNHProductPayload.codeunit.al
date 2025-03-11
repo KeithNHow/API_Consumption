@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-codeunit 50005 "KNH Product API Payload"
+codeunit 50005 "KNH Product Payload"
 {
     internal procedure GetProductPayload() Payload: Text
     begin

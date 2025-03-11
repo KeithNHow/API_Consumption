@@ -477,9 +477,9 @@ page 50000 "KNH API Handler"
     end;
 
     var
-        KNHCustomerAPIIntegration: Codeunit "KNH Customer API Integration";
-        KNHProductAPIIntegration: Codeunit "KNH Product API Integration";
-        KNHEmployeeAPIIntegration: Codeunit "KNH Employee API Integration";
+        KNHCustomerAPIIntegration: Codeunit "KNH Customer Integration";
+        KNHProductAPIIntegration: Codeunit "KNH Product Integration";
+        KNHEmployeeAPIIntegration: Codeunit "KNH Employee Integration";
         ProductUrlToAccess, EmployeeUrlToAccess, CustBasicAuthUrlToAccess : Text[1024];
         ProductNoAuthResponse, EmployeeNoAuthResponse, CustBasicAuthResponse : Text[1024];
         Username, Password : Text;

@@ -1,7 +1,7 @@
 namespace APIConsumption;
 using System.RestClient;
 
-codeunit 50004 "KNH Product API Integration"
+codeunit 50004 "KNH Product Integration"
 {
     procedure GetRecords(URLToAccess: Text)
     begin
@@ -66,8 +66,8 @@ codeunit 50004 "KNH Product API Integration"
 
     var
         KNHRestApiMgmt: Codeunit "KNH Rest API Mgmt.";
-        KNHProductAPIPayload: Codeunit "KNH Product API Payload";
-        KNHProductAPIResponse: Codeunit "KNH Product API Response";
+        KNHProductAPIPayload: Codeunit "KNH Product Payload";
+        KNHProductAPIResponse: Codeunit "KNH Product Response";
         Client: HttpClient;
         ResponseMsg: HttpResponseMessage;
         HttpMethod: Enum "Http Method";
