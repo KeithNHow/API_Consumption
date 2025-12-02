@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-page 50000 "KNH Interface Handler"
+page 53700 "KNH Interface Handler"
 {
     Caption = 'API Handler';
     PageType = Card;

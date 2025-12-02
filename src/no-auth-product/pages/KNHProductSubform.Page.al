@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-page 50006 "KNH Product Subform"
+page 53706 "KNH Product Subform"
 {
     ApplicationArea = All;
     Caption = 'Product Lines Import';

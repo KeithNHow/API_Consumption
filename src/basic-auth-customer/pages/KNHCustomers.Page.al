@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-page 50007 "KNH Customers"
+page 53707 "KNH Customers"
 {
     ApplicationArea = All;
     Caption = 'Customers Import';

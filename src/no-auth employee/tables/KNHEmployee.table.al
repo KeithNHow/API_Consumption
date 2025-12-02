@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-table 50001 "KNH Employee"
+table 53701 "KNH Employee"
 {
     Caption = 'Employees Import';
     DataClassification = CustomerContent;

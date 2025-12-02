@@ -1,7 +1,7 @@
 namespace APIConsumption;
 using System.RestClient;
 
-codeunit 50001 "KNH Employee Integration"
+codeunit 53701 "KNH Employee Integration"
 {
     procedure GetRecord(URLToAccess: Text)
     begin

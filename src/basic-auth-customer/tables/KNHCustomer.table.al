@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-table 50004 "KNH Customer"
+table 53704 "KNH Customer"
 {
     Caption = 'Customers Import';
     LookupPageId = "KNH Customer";

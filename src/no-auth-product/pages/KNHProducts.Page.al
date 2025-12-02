@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-page 50004 "KNH Products"
+page 53704 "KNH Products"
 {
     Caption = 'Products Import';
     PageType = List;

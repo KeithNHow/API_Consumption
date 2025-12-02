@@ -1,4 +1,4 @@
-table 50002 "KNH Product Header"
+table 53702 "KNH Product Header"
 {
     Caption = 'Product Import';
     DataClassification = CustomerContent;

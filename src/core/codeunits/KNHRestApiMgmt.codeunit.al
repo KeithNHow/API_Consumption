@@ -3,7 +3,7 @@
 
 namespace APIConsumption;
 
-codeunit 50000 "KNH Rest Api Mgmt."
+codeunit 53700 "KNH Rest Api Mgmt."
 {
     procedure MakeContentRequest(URLToAccess: Text; Client: HttpClient; Content: HttpContent; HttpMethod: Enum System.RestClient."Http Method") Response: HttpResponseMessage
     var

@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-codeunit 50006 "KNH Product Response"
+codeunit 53706 "KNH Product Response"
 {
     internal procedure GetResponse(ResponseMsg: HttpResponseMessage)
     begin

@@ -2,7 +2,7 @@ namespace APIConsumption;
 using System.RestClient;
 using System.Text;
 
-codeunit 50007 "KNH Customer Integration"
+codeunit 53707 "KNH Customer Integration"
 {
     procedure GetRecords(URLToAccess: Text)
     begin

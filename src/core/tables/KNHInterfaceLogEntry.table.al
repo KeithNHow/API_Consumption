@@ -1,7 +1,7 @@
 namespace APIConsumption;
 using System.RestClient;
 
-table 50000 "KNH Interface Log Entry"
+table 53700 "KNH Interface Log Entry"
 {
     Caption = 'API Log Entries';
     DataClassification = CustomerContent;

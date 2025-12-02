@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-page 50001 "KNH Interface Log Entries"
+page 53701 "KNH Interface Log Entries"
 {
     ApplicationArea = All;
     Caption = 'API Log Entries';

@@ -1,6 +1,6 @@
 namespace APIConsumption;
 
-page 50008 "KNH Customer"
+page 53708 "KNH Customer"
 {
     ApplicationArea = All;
     UsageCategory = Lists;

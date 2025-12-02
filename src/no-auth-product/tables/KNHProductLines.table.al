@@ -1,4 +1,4 @@
-table 50003 "KNH Product Lines"
+table 53703 "KNH Product Lines"
 {
     Caption = 'Product Lines Import';
     DataClassification = CustomerContent;
