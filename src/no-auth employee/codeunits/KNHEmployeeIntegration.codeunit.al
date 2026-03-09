@@ -6,21 +6,21 @@ codeunit 53701 "KNH Employee Integration"
     procedure GetRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHEmployeeAPIPayload.GetEmployeePayload()), this.HttpMethod::GET);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHEmployeeAPIPayload.GetEmployeePayload()), this.HttpMethod::GET);
         this.KNHEmployeeAPIResponse.GetResponse(this.ResponseMsg);
     end;
 
     procedure PostRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHEmployeeAPIPayload.PostEmployeePayload()), this.HttpMethod::POST);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHEmployeeAPIPayload.PostEmployeePayload()), this.HttpMethod::POST);
         this.KNHEmployeeAPIResponse.PostResponse(this.ResponseMsg);
     end;
 
     procedure PutRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHEmployeeAPIPayload.PutEmployeePayload()), this.HttpMethod::PUT);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHEmployeeAPIPayload.PutEmployeePayload()), this.HttpMethod::PUT);
         this.KNHEmployeeAPIResponse.PutResponse(this.ResponseMsg);
     end;
 
@@ -32,7 +32,7 @@ codeunit 53701 "KNH Employee Integration"
     procedure DeleteRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHEmployeeAPIPayload.DeleteEmployeePayload()), this.HttpMethod::DELETE);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHEmployeeAPIPayload.DeleteEmployeePayload()), this.HttpMethod::DELETE);
         this.KNHEmployeeAPIResponse.DeleteResponse(this.ResponseMsg);
     end;
 
@@ -55,19 +55,19 @@ codeunit 53701 "KNH Employee Integration"
     begin
         Clear(this.Client);
         if Payload <> '' then
-            Content.WriteFrom(payload);
+            Content.WriteFrom(Payload);
 
-        Content.GetHeaders(contentHeaders);
+        Content.GetHeaders(ContentHeaders);
         ContentHeaders.Clear();
         ContentHeaders.Add('Content-Type', 'application/json');
     end;
 
     var
-        KNHRestApiMgmt: Codeunit "KNH Rest API Mgmt.";
         KNHEmployeeAPIPayload: Codeunit "KNH Employee Payload";
         KNHEmployeeAPIResponse: Codeunit "KNH Employee Response";
-        ResponseMsg: HttpResponseMessage;
-        HttpMethod: Enum "Http Method";
+        KNHRestApiMgmt: Codeunit "KNH Rest Api Mgmt.";
         ResponseStatus: Boolean;
+        HttpMethod: Enum "Http Method";
         Client: HttpClient;
+        ResponseMsg: HttpResponseMessage;
 }

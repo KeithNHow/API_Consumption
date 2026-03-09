@@ -68,8 +68,8 @@ codeunit 53707 "KNH Customer Integration"
 
     local procedure GetHttpRequestMessage(payload: Text) RequestMessage: HttpRequestMessage
     var
-        RequestHeader, ContentHeader : HttpHeaders;
         HttpContent: HttpContent;
+        ContentHeader, RequestHeader : HttpHeaders;
     begin
         RequestMessage.GetHeaders(RequestHeader);
         RequestHeader.Add('Authorization', this.GetAuthroizationHeader());
@@ -93,19 +93,19 @@ codeunit 53707 "KNH Customer Integration"
         AuthString := StrSubstNo(AuthStringLbl, AuthString);
     end;
 
-    procedure SetUsernameandPassword(PassedUsername: Text; Passedpassword: text)
+    procedure SetUsernameandPassword(PassedUsername: Text; Passedpassword: Text)
     begin
         this.Username := PassedUsername;
         this.Password := Passedpassword;
     end;
 
     var
-        KNHRestApiMgmt: Codeunit "KNH Rest API Mgmt.";
         KNHCustomerAPIPayload: Codeunit "KNH Customer Payload";
         KNHCustomerAPIResponse: Codeunit "KNH Customer Response";
-        ResponseMsg: HttpResponseMessage;
-        HttpMethod: Enum "Http Method";
+        KNHRestApiMgmt: Codeunit "KNH Rest Api Mgmt.";
         //client: HttpClient;
         ResponseStatus: Boolean;
-        Username, Password : Text;
+        HttpMethod: Enum "Http Method";
+        ResponseMsg: HttpResponseMessage;
+        Password, Username : Text;
 }

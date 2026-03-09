@@ -44,10 +44,10 @@ codeunit 53709 "KNH Customer Response"
 
     local procedure WriteRecordinDatabase(pResponseText: Text)
     var
-        CustomerObject: JsonObject;
-        CustomerArray: JsonArray;
-        CustomerToken: JsonToken;
         IsObject: Boolean;
+        CustomerArray: JsonArray;
+        CustomerObject: JsonObject;
+        CustomerToken: JsonToken;
     begin
         CustomerObject.ReadFrom(pResponseText);
         IsObject := not (CustomerObject.Contains('value'));
@@ -66,12 +66,12 @@ codeunit 53709 "KNH Customer Response"
 
     local procedure ReadTheObject(CustomerObject: JsonObject)
     var
-        CustomerToken: JsonToken;
-        Responsename, ResponseAddress : Text[100];
-        ResponseAddress2: Text[50];
-        ResponsePhoneNo: Text[30];
-        ResponseGUID: Guid;
         ResponseCustomerNo: Code[20];
+        ResponseGUID: Guid;
+        CustomerToken: JsonToken;
+        ResponsePhoneNo: Text[30];
+        ResponseAddress2: Text[50];
+        ResponseAddress, Responsename : Text[100];
     begin
         Clear(Responsename);
         Clear(ResponseAddress);
@@ -84,7 +84,7 @@ codeunit 53709 "KNH Customer Response"
         ResponseCustomerNo := CopyStr(CustomerToken.AsValue().AsCode(), 1, 20);
 
         CustomerObject.Get('displayName', CustomerToken);
-        Responsename := Copystr(CustomerToken.AsValue().AsText(), 1, 100);
+        Responsename := CopyStr(CustomerToken.AsValue().AsText(), 1, 100);
 
         CustomerObject.Get('addressLine1', CustomerToken);
         ResponseAddress := CopyStr(CustomerToken.AsValue().AsText(), 1, 100);
@@ -103,8 +103,8 @@ codeunit 53709 "KNH Customer Response"
 
     local procedure ReadTheArray(CustomerArray: JsonArray)
     var
-        CustomerToken: JsonToken;
         CustomerObject: JsonObject;
+        CustomerToken: JsonToken;
     begin
         foreach CustomerToken in CustomerArray do begin
             CustomerObject := CustomerToken.AsObject();

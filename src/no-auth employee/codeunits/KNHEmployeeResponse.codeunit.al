@@ -46,12 +46,12 @@ codeunit 53703 "KNH Employee Response"
 
     local procedure ParseEmployeeResponse(OutputString: Text)
     var
-        EmployeeJson, EmployeeObject : JsonObject;
-        EmployessArray: JsonArray;
-        StatusJsonToken, EmployeesToken, EmployeeToken, ResultToken : JsonToken;
-        ResponseID, ResponseAge : Integer;
-        ResponseName: Text;
         ResponseSalary: Decimal;
+        ResponseAge, ResponseID : Integer;
+        EmployessArray: JsonArray;
+        EmployeeJson, EmployeeObject : JsonObject;
+        EmployeesToken, EmployeeToken, ResultToken, StatusJsonToken : JsonToken;
+        ResponseName: Text;
     begin
         EmployeeJson.ReadFrom(OutputString);
 
@@ -96,7 +96,7 @@ codeunit 53703 "KNH Employee Response"
             exit;
 
         DemoTable.Init();
-        DemoTable.Validate(id, ResponseID);
+        DemoTable.Validate(Id, ResponseID);
         DemoTable.Validate(Name, ResponseName);
         DemoTable.Validate(Salary, ResponseSalary);
         DemoTable.Validate(Age, ResponseAge);

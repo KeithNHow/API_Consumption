@@ -6,7 +6,7 @@ table 53702 "KNH Product Header"
     DrillDownPageId = "KNH Products";
     fields
     {
-        field(1; Id; code[50])
+        field(1; Id; Code[50])
         {
             Caption = 'id';
         }
@@ -30,7 +30,7 @@ table 53702 "KNH Product Header"
     var
         ProductLines: Record "KNH Product Lines";
     begin
-        ProductLines.SetRange(id, Rec.id);
+        ProductLines.SetRange(Id, Rec.Id);
         if not ProductLines.IsEmpty() then
             ProductLines.DeleteAll(true);
     end;

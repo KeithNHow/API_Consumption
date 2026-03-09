@@ -7,7 +7,7 @@ page 53705 "KNH Product"
     Caption = 'Product Import';
     PageType = Document;
     RefreshOnActivate = true;
-    DataCaptionFields = id, name;
+    DataCaptionFields = Id, Name;
     SourceTable = "KNH Product Header";
 
     layout
@@ -18,11 +18,11 @@ page 53705 "KNH Product"
             {
                 Caption = 'General';
 
-                field(id; Rec.id)
+                field(id; Rec.Id)
                 {
                     ToolTip = 'Specifies the value of the id field.';
                 }
-                field(name; Rec.name)
+                field(name; Rec.Name)
                 {
                     ToolTip = 'Specifies the value of the name field.';
                 }
@@ -34,7 +34,7 @@ page 53705 "KNH Product"
             part(Lines; "KNH Product Subform")
             {
                 ApplicationArea = All;
-                SubPageLink = "id" = field("id");
+                SubPageLink = Id = field(Id);
                 UpdatePropagation = Both;
             }
         }

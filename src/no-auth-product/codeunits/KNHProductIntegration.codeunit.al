@@ -6,35 +6,35 @@ codeunit 53704 "KNH Product Integration"
     procedure GetRecords(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHProductAPIPayload.GetProductPayload()), this.HttpMethod::GET);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHProductAPIPayload.GetProductPayload()), this.HttpMethod::GET);
         this.KNHProductAPIResponse.GetResponse(this.ResponseMsg);
     end;
 
     procedure PostRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHProductAPIPayload.PostProductPayload()), this.HttpMethod::POST);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHProductAPIPayload.PostProductPayload()), this.HttpMethod::POST);
         this.KNHProductAPIResponse.PostResponse(this.ResponseMsg);
     end;
 
     procedure PutRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHProductAPIPayload.PutProductPayload()), this.HttpMethod::PUT);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHProductAPIPayload.PutProductPayload()), this.HttpMethod::PUT);
         this.KNHProductAPIResponse.PutResponse(this.ResponseMsg);
     end;
 
     procedure PatchRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHProductAPIPayload.PatchProductPayload()), this.HttpMethod::PATCH);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHProductAPIPayload.PatchProductPayload()), this.HttpMethod::PATCH);
         this.KNHProductAPIResponse.PatchResponse(this.ResponseMsg);
     end;
 
     procedure DeleteRecord(URLToAccess: Text)
     begin
         this.CheckMandatoryAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.client, this.GetContentwithHeader(this.KNHProductAPIPayload.DeleteProductPayload()), this.HttpMethod::DELETE);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHProductAPIPayload.DeleteProductPayload()), this.HttpMethod::DELETE);
         this.KNHProductAPIResponse.DeleteResponse(this.ResponseMsg);
     end;
 
@@ -57,19 +57,19 @@ codeunit 53704 "KNH Product Integration"
     begin
         Clear(this.Client);
         if Payload <> '' then
-            Content.WriteFrom(payload);
+            Content.WriteFrom(Payload);
 
-        Content.GetHeaders(ContentHeaders);
-        ContentHeaders.Clear();
-        ContentHeaders.Add('Content-Type', 'application/json');
+        Content.GetHeaders(contentHeaders);
+        contentHeaders.Clear();
+        contentHeaders.Add('Content-Type', 'application/json');
     end;
 
     var
-        KNHRestApiMgmt: Codeunit "KNH Rest API Mgmt.";
         KNHProductAPIPayload: Codeunit "KNH Product Payload";
         KNHProductAPIResponse: Codeunit "KNH Product Response";
+        KNHRestApiMgmt: Codeunit "KNH Rest Api Mgmt.";
+        ResponseStatus: Boolean;
+        HttpMethod: Enum "Http Method";
         Client: HttpClient;
         ResponseMsg: HttpResponseMessage;
-        HttpMethod: Enum "Http Method";
-        ResponseStatus: Boolean;
 }

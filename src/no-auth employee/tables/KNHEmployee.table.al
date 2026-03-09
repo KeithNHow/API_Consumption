@@ -9,22 +9,22 @@ table 53701 "KNH Employee"
     DataCaptionFields = Id, Name;
     fields
     {
-        field(1; "Id"; Integer)
+        field(1; Id; Integer)
         {
             Caption = 'ID';
             ToolTip = 'Specifies the value of the ID field.';
         }
-        field(2; "Name"; Text[100])
+        field(2; Name; Text[100])
         {
             Caption = 'Name';
             ToolTip = 'Specifies the value of the Employee Name field.';
         }
-        field(3; "Salary"; Decimal)
+        field(3; Salary; Decimal)
         {
             Caption = 'Salary';
             ToolTip = 'Specifies the value of the Employee Salary field.';
         }
-        field(4; "Age"; Integer)
+        field(4; Age; Integer)
         {
             Caption = 'Age';
             ToolTip = 'Specifies the value of the Employee Age field.';
@@ -32,7 +32,7 @@ table 53701 "KNH Employee"
     }
     keys
     {
-        key(PK; "Id")
+        key(PK; Id)
         {
             Clustered = true;
         }

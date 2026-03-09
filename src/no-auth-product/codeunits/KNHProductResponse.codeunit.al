@@ -44,9 +44,9 @@ codeunit 53706 "KNH Product Response"
 
     local procedure WriteRecordinDatabase(pResponseText: Text; IsNotReserved: Boolean)
     var
-        ProductObject: JsonObject;
-        ProductArray: JsonArray;
         IsObject: Boolean;
+        ProductArray: JsonArray;
+        ProductObject: JsonObject;
     begin
         IsObject := ProductObject.ReadFrom(pResponseText);
 
@@ -62,12 +62,12 @@ codeunit 53706 "KNH Product Response"
 
     local procedure ReadTheObject(ProductObject: JsonObject; IsNotReserved: Boolean)
     var
+        ResponseID: Code[50];
+        i: Integer;
         ProductDetailObject: JsonObject;
         ProductToken: JsonToken;
-        i: Integer;
         parameterkeys: List of [Text];
         Responsename: Text;
-        ResponseID: Code[50];
     begin
         Clear(ResponseID);
         Clear(Responsename);
@@ -94,8 +94,8 @@ codeunit 53706 "KNH Product Response"
 
     local procedure ReadTheArray(ProductArray: JsonArray; IsNotReserved: Boolean)
     var
-        ProductToken: JsonToken;
         ProductObject: JsonObject;
+        ProductToken: JsonToken;
     begin
         foreach ProductToken in ProductArray do begin
             ProductObject := ProductToken.AsObject();
@@ -114,8 +114,8 @@ codeunit 53706 "KNH Product Response"
             exit;
 
         KNHProductNoAuthHeader.Init();
-        KNHProductNoAuthHeader.id := ResponseID;
-        KNHProductNoAuthHeader.name := CopyStr(Responsename, 1, 250);
+        KNHProductNoAuthHeader.Id := ResponseID;
+        KNHProductNoAuthHeader.Name := CopyStr(Responsename, 1, 250);
         KNHProductNoAuthHeader."Not Reserved" := IsNotReserved;
         KNHProductNoAuthHeader.Insert(true);
     end;
@@ -127,16 +127,16 @@ codeunit 53706 "KNH Product Response"
         if ResponseID = '' then
             exit;
 
-        KNHProductNoAuthLine.SetRange("id", ResponseID);
+        KNHProductNoAuthLine.SetRange(Id, ResponseID);
         KNHProductNoAuthLine.SetRange(Parameter, Param);
         if not KNHProductNoAuthLine.IsEmpty() then
             exit;
 
         KNHProductNoAuthLine.Init();
-        KNHProductNoAuthLine.id := ResponseID;
+        KNHProductNoAuthLine.Id := ResponseID;
         KNHProductNoAuthLine."Line No." := 0;
         KNHProductNoAuthLine.Parameter := CopyStr(Param, 1, 250);
-        KNHProductNoAuthLine.Value := Copystr(Val, 1, 250);
+        KNHProductNoAuthLine.Value := CopyStr(Val, 1, 250);
         KNHProductNoAuthLine.Insert(true);
     end;
 

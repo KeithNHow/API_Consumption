@@ -4,7 +4,7 @@ page 53704 "KNH Products"
 {
     Caption = 'Products Import';
     PageType = List;
-    DataCaptionFields = id, name;
+    DataCaptionFields = Id, Name;
     CardPageId = "KNH Product";
     SourceTable = "KNH Product Header";
     Editable = false;
@@ -18,11 +18,11 @@ page 53704 "KNH Products"
         {
             repeater(General)
             {
-                field(id; Rec.id)
+                field(id; Rec.Id)
                 {
                     ToolTip = 'Specifies the value of the id field.';
                 }
-                field(name; Rec.name)
+                field(name; Rec.Name)
                 {
                     ToolTip = 'Specifies the value of the name field.';
                 }

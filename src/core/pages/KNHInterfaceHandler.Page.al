@@ -21,14 +21,14 @@ page 53700 "KNH Interface Handler"
                     {
                         Caption = 'Website';
                         ToolTip = 'Specifies the value of the Website field.';
-                        ExtendedDatatype = Url;
+                        ExtendedDatatype = URL;
                         Editable = false;
                     }
                     field(CustomerUrlToAccess; this.CustBasicAuthUrlToAccess)
                     {
                         Caption = 'Execute URL';
                         ToolTip = 'Specifies the value of the Execute URL field.';
-                        ExtendedDatatype = Url;
+                        ExtendedDatatype = URL;
                         ShowMandatory = true;
                     }
                     field(Username; this.Username)
@@ -48,7 +48,7 @@ page 53700 "KNH Interface Handler"
                     {
                         Caption = 'Output';
                         ToolTip = 'Specifies the value of the Output field.';
-                        ExtendedDatatype = Url;
+                        ExtendedDatatype = URL;
                         Editable = false;
                     }
                 }
@@ -172,21 +172,21 @@ page 53700 "KNH Interface Handler"
                     {
                         Caption = 'Website';
                         ToolTip = 'Specifies the value of the Website field.';
-                        ExtendedDatatype = Url;
+                        ExtendedDatatype = URL;
                         Editable = false;
                     }
                     field(EmployeeUrlToAccess; this.EmployeeUrlToAccess)
                     {
                         Caption = 'Execute URL';
                         ToolTip = 'Specifies the value of the Execute URL field.';
-                        ExtendedDatatype = Url;
+                        ExtendedDatatype = URL;
                         ShowMandatory = true;
                     }
                     field(EmployeeOutput; this.EmployeeNoAuthResponse)
                     {
                         Caption = 'Output';
                         ToolTip = 'Specifies the value of the Output field.';
-                        ExtendedDatatype = Url;
+                        ExtendedDatatype = URL;
                         Editable = false;
                     }
                 }
@@ -305,21 +305,21 @@ page 53700 "KNH Interface Handler"
                     {
                         Caption = 'Website';
                         ToolTip = 'Specifies the value of the Website field.';
-                        ExtendedDatatype = Url;
+                        ExtendedDatatype = URL;
                         Editable = false;
                     }
                     field(ProductUrlToAccess; this.ProductUrlToAccess)
                     {
                         Caption = 'Execute URL';
                         ToolTip = 'Specifies the value of the Execute URL field.';
-                        ExtendedDatatype = Url;
+                        ExtendedDatatype = URL;
                         ShowMandatory = true;
                     }
                     field(ProductOutput; this.ProductNoAuthResponse)
                     {
                         Caption = 'Output';
                         ToolTip = 'Specifies the value of the Output field.';
-                        ExtendedDatatype = Url;
+                        ExtendedDatatype = URL;
                         Editable = false;
                     }
                 }
@@ -438,25 +438,25 @@ page 53700 "KNH Interface Handler"
             {
                 ToolTip = 'Shows the log entries.';
                 Image = ErrorLog;
-                RunObject = Page "KNH Interface Log Entries";
+                RunObject = page "KNH Interface Log Entries";
             }
             action(CustomerAPI)
             {
                 ToolTip = 'Shows the Customer API.';
                 Image = Customer;
-                RunObject = Page "KNH Customers";
+                RunObject = page "KNH Customers";
             }
             action(EmployeeAPI)
             {
                 ToolTip = 'Shows the Employee API.';
                 Image = Employee;
-                RunObject = Page "KNH Employees";
+                RunObject = page "KNH Employees";
             }
             action(ProductAPI)
             {
                 ToolTip = 'Shows the Product API.';
                 Image = Item;
-                RunObject = Page "KNH Products";
+                RunObject = page "KNH Products";
             }
         }
 
@@ -478,22 +478,22 @@ page 53700 "KNH Interface Handler"
 
     var
         KNHCustomerAPIIntegration: Codeunit "KNH Customer Integration";
-        KNHProductAPIIntegration: Codeunit "KNH Product Integration";
         KNHEmployeeAPIIntegration: Codeunit "KNH Employee Integration";
-        ProductUrlToAccess, EmployeeUrlToAccess, CustBasicAuthUrlToAccess : Text[1024];
-        ProductNoAuthResponse, EmployeeNoAuthResponse, CustBasicAuthResponse : Text[1024];
-        Username, Password : Text;
-        EmployeeAuthUrlLbl: Label 'https://dummy.restapiexample.com/';
-        ProductAuthUrlLbl: Label 'https://restful-api.dev/';
+        KNHProductAPIIntegration: Codeunit "KNH Product Integration";
         CustBasicAuthUrlLbl: Label 'https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_customer';
-        GetLbl: Label 'Get';
-        PostLbl: Label 'Post';
-        PutLbl: Label 'Put';
-        PatchLbl: Label 'Patch';
         DeleteLbl: Label 'Delete';
-        GetUrlLbl: Label 'Generate Get URL';
-        PostUrlLbl: Label 'Generate Post URL';
-        PutUrlLbl: Label 'Generate Put URL';
-        PatchUrlLbl: Label 'Generate Patch URL';
         DeleteUrlLbl: Label 'Generate Delete URL';
+        EmployeeAuthUrlLbl: Label 'https://dummy.restapiexample.com/';
+        GetLbl: Label 'Get';
+        GetUrlLbl: Label 'Generate Get URL';
+        PatchLbl: Label 'Patch';
+        PatchUrlLbl: Label 'Generate Patch URL';
+        PostLbl: Label 'Post';
+        PostUrlLbl: Label 'Generate Post URL';
+        ProductAuthUrlLbl: Label 'https://restful-api.dev/';
+        PutLbl: Label 'Put';
+        PutUrlLbl: Label 'Generate Put URL';
+        Password, Username : Text;
+        CustBasicAuthResponse, EmployeeNoAuthResponse, ProductNoAuthResponse : Text[1024];
+        CustBasicAuthUrlToAccess, EmployeeUrlToAccess, ProductUrlToAccess : Text[1024];
 }

@@ -4,7 +4,7 @@ codeunit 53708 "KNH Customer Payload"
 {
     internal procedure GetCustomerPayload() Payload: Text
     begin
-        payload := '';
+        Payload := '';
     end;
 
     internal procedure PostCustomerPayload() Payload: Text
@@ -29,7 +29,7 @@ codeunit 53708 "KNH Customer Payload"
     begin
         JsonPayload.Add('Name', 'Mark How');
         JsonPayload.Add('Email', 'markhow@metronet.co.uk');
-        JsonPayload.WriteTo(payload);
+        JsonPayload.WriteTo(Payload);
     end;
 
     internal procedure DeleteCustomerPayload() Payload: Text

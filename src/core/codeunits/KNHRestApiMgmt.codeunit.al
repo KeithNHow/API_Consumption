@@ -7,8 +7,8 @@ codeunit 53700 "KNH Rest Api Mgmt."
 {
     procedure MakeContentRequest(URLToAccess: Text; Client: HttpClient; Content: HttpContent; HttpMethod: Enum System.RestClient."Http Method") Response: HttpResponseMessage
     var
-        Request: HttpRequestMessage;
         ResponseStatus: Boolean;
+        Request: HttpRequestMessage;
     begin
         Request.Content := Content;
         Request.SetRequestUri(URLToAccess);
@@ -31,8 +31,8 @@ codeunit 53700 "KNH Rest Api Mgmt."
 
     procedure MakeRequest(URLToAccess: Text; Request: HttpRequestMessage; HttpMethod: Enum System.RestClient."Http Method") response: HttpResponseMessage
     var
-        Client: HttpClient;
         ResponseStatus: Boolean;
+        Client: HttpClient;
     begin
         Request.SetRequestUri(URLToAccess);
 
@@ -48,8 +48,8 @@ codeunit 53700 "KNH Rest Api Mgmt."
             HttpMethod::DELETE:
                 Request.Method := 'DELETE';
         end;
-        ResponseStatus := Client.Send(Request, Response);
-        this.LogApiTransaction(URLToAccess, HttpMethod, Request, Response, ResponseStatus);
+        ResponseStatus := Client.Send(Request, response);
+        this.LogApiTransaction(URLToAccess, HttpMethod, Request, response, ResponseStatus);
     end;
 
     local procedure LogApiTransaction(URLToAccess: Text; HttpMethod: Enum System.RestClient."Http Method"; Request: HttpRequestMessage; var Response: HttpResponseMessage; ResponseStatus: Boolean)

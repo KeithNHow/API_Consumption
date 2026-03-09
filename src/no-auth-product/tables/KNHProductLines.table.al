@@ -6,11 +6,11 @@ table 53703 "KNH Product Lines"
     DrillDownPageId = "KNH Product Subform";
     fields
     {
-        field(1; Id; code[50])
+        field(1; Id; Code[50])
         {
             Caption = 'id';
             Editable = false;
-            TableRelation = "KNH Product Header"."id";
+            TableRelation = "KNH Product Header".Id;
         }
         field(2; "Line No."; Integer)
         {
@@ -28,7 +28,7 @@ table 53703 "KNH Product Lines"
     }
     keys
     {
-        key(PK; "Id", "Line No.")
+        key(PK; Id, "Line No.")
         {
             Clustered = true;
         }
@@ -39,7 +39,7 @@ table 53703 "KNH Product Lines"
         ProductLines: Record "KNH Product Lines";
     begin
         if Rec."Line No." = 0 then begin
-            ProductLines.SetRange("id", Rec."id");
+            ProductLines.SetRange(Id, Rec.Id);
             if ProductLines.FindLast() then
                 Rec."Line No." := ProductLines."Line No." + 10000
             else

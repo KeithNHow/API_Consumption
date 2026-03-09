@@ -19,7 +19,7 @@ table 53700 "KNH Interface Log Entry"
         {
             Caption = 'URL';
             ToolTip = 'Specifies the value of the URL field.';
-            ExtendedDatatype = Url;
+            ExtendedDatatype = URL;
         }
         field(3; Method; Enum "Http Method")
         {
@@ -83,7 +83,7 @@ table 53700 "KNH Interface Log Entry"
         Instr: InStream;
         FileName: Text;
     begin
-        if not rec.Response.HasValue() then
+        if not Rec.Response.HasValue() then
             exit;
         Rec.SetAutoCalcFields(Response);
         Rec.Response.CreateInStream(Instr);
