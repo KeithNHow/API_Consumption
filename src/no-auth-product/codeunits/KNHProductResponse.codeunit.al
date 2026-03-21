@@ -2,6 +2,9 @@ namespace KNHAPIConsumption;
 
 codeunit 53706 "KNH Product Response"
 {
+    var
+        ResponseText: Text;
+
     internal procedure GetResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
@@ -120,7 +123,7 @@ codeunit 53706 "KNH Product Response"
         KNHProductNoAuthHeader.Insert(true);
     end;
 
-    local procedure writeLineinDatabase(ResponseID: Code[50]; Param: Text; Val: Text)
+    local procedure WriteLineinDatabase(ResponseID: Code[50]; Param: Text; Val: Text)
     var
         KNHProductNoAuthLine: Record "KNH Product Lines";
     begin
@@ -139,7 +142,4 @@ codeunit 53706 "KNH Product Response"
         KNHProductNoAuthLine.Value := CopyStr(Val, 1, 250);
         KNHProductNoAuthLine.Insert(true);
     end;
-
-    var
-        ResponseText: Text;
 }

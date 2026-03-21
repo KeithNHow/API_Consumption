@@ -3,7 +3,7 @@ namespace KNHAPIConsumption;
 page 53702 "KNH Employees"
 {
     ApplicationArea = All;
-    Caption = 'Employees Import';
+    Caption = 'Employee Card';
     PageType = List;
     Editable = false;
     SourceTable = "KNH Employee";

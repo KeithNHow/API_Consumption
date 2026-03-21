@@ -1,13 +1,10 @@
 ///<summary>
-///Proc Make Content Request - Url, client, content, method - returns response
-///Proc Make Request - Url, request, method - returns response 
 ///</summary>
-
 namespace KNHAPIConsumption;
 
 codeunit 53700 "KNH Rest Api Mgmt."
 {
-    procedure MakeContentRequest(URLToAccess: Text; Client: HttpClient; Content: HttpContent; HttpMethod: Enum System.RestClient."Http Method") Response: HttpResponseMessage
+    internal procedure MakeContentRequest(URLToAccess: Text; Client: HttpClient; Content: HttpContent; HttpMethod: Enum System.RestClient."Http Method") Response: HttpResponseMessage
     var
         ResponseStatus: Boolean;
         Request: HttpRequestMessage;
@@ -31,7 +28,7 @@ codeunit 53700 "KNH Rest Api Mgmt."
         this.LogApiTransaction(URLToAccess, HttpMethod, Request, Response, ResponseStatus);
     end;
 
-    procedure MakeRequest(URLToAccess: Text; Request: HttpRequestMessage; HttpMethod: Enum System.RestClient."Http Method") response: HttpResponseMessage
+    internal procedure MakeRequest(URLToAccess: Text; Request: HttpRequestMessage; HttpMethod: Enum System.RestClient."Http Method") response: HttpResponseMessage
     var
         ResponseStatus: Boolean;
         Client: HttpClient;

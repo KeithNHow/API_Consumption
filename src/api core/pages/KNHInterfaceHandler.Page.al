@@ -1,5 +1,8 @@
 ///<summary>
-/// This page is the page that controls the API imports.
+/// This page is the page that controls the API imports. It contains groups for Customer, Employee and Product.
+/// Customer Group is made up of References and Actions
+/// References - website url, excuting website url, username, password, output
+/// Actions -   
 ///</summary>
 namespace KNHAPIConsumption;
 
@@ -439,25 +442,29 @@ page 53700 "KNH Interface Handler"
         {
             action(LogEntries)
             {
+                Caption = 'Log Entries';
                 ToolTip = 'Shows the log entries.';
                 Image = ErrorLog;
                 RunObject = page "KNH Interface Log Entries";
             }
             action(CustomerAPI)
             {
-                ToolTip = 'Shows the Customer API.';
+                Caption = 'Customer Records';
+                ToolTip = 'Shows the Customer records.';
                 Image = Customer;
                 RunObject = page "KNH Customers";
             }
             action(EmployeeAPI)
             {
-                ToolTip = 'Shows the Employee API.';
+                Caption = 'Employee Records';
+                ToolTip = 'Shows the Employee records.';
                 Image = Employee;
                 RunObject = page "KNH Employees";
             }
             action(ProductAPI)
             {
-                ToolTip = 'Shows the Product API.';
+                Caption = 'Product Records';
+                ToolTip = 'Shows the Product records.';
                 Image = Item;
                 RunObject = page "KNH Products";
             }

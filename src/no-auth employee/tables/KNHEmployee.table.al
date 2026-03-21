@@ -7,6 +7,8 @@ table 53701 "KNH Employee"
     DrillDownPageId = "KNH Employees";
     LookupPageId = "KNH Employees";
     DataCaptionFields = Id, Name;
+    AllowInCustomizations = AsReadWrite;
+
     fields
     {
         field(1; Id; Integer)

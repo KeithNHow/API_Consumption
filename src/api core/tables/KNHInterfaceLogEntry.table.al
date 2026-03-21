@@ -67,7 +67,7 @@ table 53700 "KNH Interface Log Entry"
         }
     }
 
-    procedure DownloadRequest()
+    internal procedure DownloadRequest()
     var
         Instream: InStream;
         FileName: Text;
@@ -80,7 +80,7 @@ table 53700 "KNH Interface Log Entry"
         DownloadFromStream(Instream, 'Export Request', '', 'Json Files (*.json)|*.json', FileName);
     end;
 
-    procedure DownloadResponse()
+    internal procedure DownloadResponse()
     var
         Instr: InStream;
         FileName: Text;
@@ -93,7 +93,7 @@ table 53700 "KNH Interface Log Entry"
         DownloadFromStream(Instr, 'Export Request', '', 'Json Files (*.json)|*.json', FileName);
     end;
 
-    procedure AddNewLogEntry(URLToAccess: Text; HttpMethod: Enum System.RestClient."Http Method"; RequestStream: InStream; ResponseStream: InStream; ResponseCode: Integer; Success: Boolean)
+    internal procedure AddNewLogEntry(URLToAccess: Text; HttpMethod: Enum System.RestClient."Http Method"; RequestStream: InStream; ResponseStream: InStream; ResponseCode: Integer; Success: Boolean)
     var
         LogEntry: Record "KNH Interface Log Entry";
         OutStream: OutStream;

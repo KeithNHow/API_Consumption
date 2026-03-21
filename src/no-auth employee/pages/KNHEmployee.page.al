@@ -4,7 +4,7 @@ page 53703 "KNH Employee"
 {
     ApplicationArea = All;
     UsageCategory = Lists;
-    Caption = 'Employee Import';
+    Caption = 'Employee List';
     PageType = Card;
     SourceTable = "KNH Employee";
 

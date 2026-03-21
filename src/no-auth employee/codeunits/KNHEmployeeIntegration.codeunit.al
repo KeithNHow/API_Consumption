@@ -3,53 +3,62 @@ using System.RestClient;
 
 codeunit 53701 "KNH Employee Integration"
 {
-    procedure GetRecord(URLToAccess: Text)
+    var
+        KNHEmployeeAPIPayload: Codeunit "KNH Employee Payload";
+        KNHEmployeeAPIResponse: Codeunit "KNH Employee Response";
+        KNHRestApiMgmt: Codeunit "KNH Rest Api Mgmt.";
+        ResponseStatus: Boolean;
+        HttpMethod: Enum "Http Method";
+        Client: HttpClient;
+        ResponseMsg: HttpResponseMessage;
+
+    internal procedure GetRecord(URLToAccess: Text)
     begin
-        this.CheckMandatoryAndReset(URLToAccess);
+        this.CheckUrlAndReset(URLToAccess);
         this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHEmployeeAPIPayload.GetEmployeePayload()), this.HttpMethod::GET);
         this.KNHEmployeeAPIResponse.GetResponse(this.ResponseMsg);
     end;
 
-    procedure PostRecord(URLToAccess: Text)
+    internal procedure PostRecord(URLToAccess: Text)
     begin
-        this.CheckMandatoryAndReset(URLToAccess);
+        this.CheckUrlAndReset(URLToAccess);
         this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHEmployeeAPIPayload.PostEmployeePayload()), this.HttpMethod::POST);
         this.KNHEmployeeAPIResponse.PostResponse(this.ResponseMsg);
     end;
 
-    procedure PutRecord(URLToAccess: Text)
+    internal procedure PutRecord(URLToAccess: Text)
     begin
-        this.CheckMandatoryAndReset(URLToAccess);
+        this.CheckUrlAndReset(URLToAccess);
         this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHEmployeeAPIPayload.PutEmployeePayload()), this.HttpMethod::PUT);
         this.KNHEmployeeAPIResponse.PutResponse(this.ResponseMsg);
     end;
 
-    procedure PatchRecord(URLToAccess: Text)
+    internal procedure PatchRecord(URLToAccess: Text)
     begin
         Error('This API does not support patch request.');
     end;
 
-    procedure DeleteRecord(URLToAccess: Text)
+    internal procedure DeleteRecord(URLToAccess: Text)
     begin
-        this.CheckMandatoryAndReset(URLToAccess);
+        this.CheckUrlAndReset(URLToAccess);
         this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHEmployeeAPIPayload.DeleteEmployeePayload()), this.HttpMethod::DELETE);
         this.KNHEmployeeAPIResponse.DeleteResponse(this.ResponseMsg);
     end;
 
-    local procedure CheckMandatoryAndReset(URLToAccess: Text)
+    local procedure CheckUrlAndReset(URLToAccess: Text)
     begin
         if URLToAccess = '' then
             Error('URL cannot be empty');
 
-        if StrPos(URLToAccess, '%1') > 0 then
-            Error('Execute URL cannot have %1');
+        if StrPos(URLToAccess, '.') = 0 then
+            Error('Execute URL must have a dot');
 
         Clear(this.ResponseMsg);
         Clear(this.HttpMethod);
         Clear(this.ResponseStatus);
     end;
 
-    procedure GetContentwithHeader(Payload: Text) Content: HttpContent
+    local procedure GetContentwithHeader(Payload: Text) Content: HttpContent
     var
         ContentHeaders: HttpHeaders;
     begin
@@ -61,13 +70,4 @@ codeunit 53701 "KNH Employee Integration"
         ContentHeaders.Clear();
         ContentHeaders.Add('Content-Type', 'application/json');
     end;
-
-    var
-        KNHEmployeeAPIPayload: Codeunit "KNH Employee Payload";
-        KNHEmployeeAPIResponse: Codeunit "KNH Employee Response";
-        KNHRestApiMgmt: Codeunit "KNH Rest Api Mgmt.";
-        ResponseStatus: Boolean;
-        HttpMethod: Enum "Http Method";
-        Client: HttpClient;
-        ResponseMsg: HttpResponseMessage;
 }

@@ -16,73 +16,154 @@ Put - updates all fields for record in api table
 Patch - update specific fields for record in api table
 Delete - removes record in api table
 
-GetPostPutPatchDelete Record
-----------------------------
-CheckMandatoryAndReset
-Get,Post,Put,Patch,Delete Payload (MakeContentRequest(PostPayload,GetContent,MakeContent))
-GetResponse(ReviewResponse)
+----------
+# Api Core
+----------
+# Interface Log Entry table
+IP DownloadRequest called from Interface Log Entries page
+IP DownloadResponse Called from Interface Log Entries page
+IP AddNewLogEntry Called from Rest Mgmt codeunit
 
-Customer table - 6 fields "No.", Name, Addr, Addr2, "Phone No.", System Id
-Employee table - 4 fields Id, Name, Salary, Age
-Product Header table - 3 fields - Id, Name, "Not Reserved"
-Product Line table - 4 fields - Id, "Line No.", Parameter, Value
-
-Log Entries table - 9 fields "Entry No.", Url, Method, Request, Response, "Resp Code", Successful, "Requested By", "Logged On"
-Procedures - Download Request, Download Response, Add New Entry
-
-# Core
-------
-# Rest API Management codeunit
-MakeContentRequest, MakeRequest, LogApiTransaction
 # Interface Handler card page 
-Drilldown Actions 
+Page Area
+    Group Customer References - Website, Execute Url, Username, Password, Output
+    Group Customer Actions - GetUrlLbl, GetLbl, same for Post, Put, Patch and Delete
+
+    Group Employee References - Website, Execute Url, Output
+    Group Employee Actions - GetUrl, GetLbl, same for Post, Put, Patch and Delete
+
+    Group Product References - Website, Execute Url, Output
+    Group Product Actions - GetUrl, GetLbl, same for Post, Put, Patch and Delete
+
+Page Actions - Log Entries, Customer records, Employee records, Product records 
+
 # Interface Log Entries page
-Rec DownloadReq, DownloadResp
-# Interface Log Entries table
-DownloadRequest Procedure - called from
-DownloadResponse Procedure - called from
-AddNewLogEntry Procedure - called from
+Action - Download Request 
+Action - Download Response
+Action - Delete All
 
-# Basic Auth
+# Rest Management codeunit
+IP MakeContentRequest called from EmloyeeIntegration and ProductIntegration
+IP MakeRequest called from CustomerIntegration
+LP LogTransaction called from MakeContentRequest and MakeRequest
+
+---------------------
+# Basic Auth Customer
+---------------------
+# Customer table
+GP - Delete All Imported
+# Customer card page
+Action - Delete Imported
+# Customer list page
+
+# Customer Integration codeunit 
+IP - GetRecord, PostRecord, PutRecord, PatchRecord, DeleteRecord called from Interface Handler page
+
+IP GetRecord
 ------------
-# Codeunits 
-CustomerAPIIntegration, CustomerAPIPayload, CustomerAPIResponse
-# Pages
-CustomerCard, CustomerList
-# Tables
-Customer
+CheckUrlandReset
+ResponseMessage - RestMgmt.MakeContentRequest, GetContentWithHeader, EmployeePayload.GetEmployeePayload, 
+EmployeeResponse.PostResponse
 
+LP CheckUrlAndReset
+LP GetContentwithHeader
 
+# Customer Payload codeunit
+IP Get Employee Payload
+IP Post Employee Payload
+IP Put Employee Payload
+IP Patch Employee Payload
+IP Delete Employee Payload
 
-# Dummy - Rest API
+# Customer Response codeunit
+IP Get Response
+IP Post Response
+IP Put Response
+IP Patch Response
+IP Delete Response
+
+LP ReviewResponseStatusCode
+LP WriteRecordinDatabase
+LP ReadTheObject
+LP ReadTheArray
+LP WriteHeaderInDatabase
+
 ------------------
-# EmployeeAPIIntegration CU 
-Proc GetRec, PodtRec, PutRec, PatchRec, DeleteRec --> CheckReset, MakeReq, GetContent, GenProc, HandleProc
-Proc CheckReset, GetContent
-# EmployeeAPIPayload CU
-Proc GenGetPayload, GenPostPayload, GenPutPayload, GenPatchPayload, GenDeletePayload --> WriteToFile
-# EmployeeAPIResponse CU
-Proc HandleGetResp, HandlePostResp, HandlePutResp, HandlePatchResp, HandleDeleteResp --> ReviewRespCode, ParseEmpResp
-Proc ReviewRespCode, ParseEmpResp
-# Employees Page 
-Rec DeleteAllImported
-# Employee Table
-A DeleteAllImported
+# No-Auth Employee
+------------------
+# Employee table
+GP - Delete All Imported
+# Employee card page 
+Action - Delete Imported
+# Employee List page
 
-# Restful API
--------------
-# ProductAPIIntegration CU
-Proc GetRec, PodtRec, PutRec, PatchRec, DeleteRec --> CheckReset, MakeReq, GetContent, GenProc, HandleProc
-Proc CheckReset, GetContent
-# ProductAPIPayload CU
-Proc GenGetPayload, GenPostPayload, GenPutPayload, GenPatchPayload, GenDeletePayload --> WriteToFile
-# ProductAPIResponse CU
-Proc HandleGetResp, HandlePostResp, HandlePutResp, HandlePatchResp, HandleDeleteResp --> ReviewRespCode, ParseEmpResp
-Proc ReviewRespCode, ParseEmpResp
-# Product Header Page
-# Product Lines Page
-Rec DeleteAllImported
-# Product Table
-A DeleteAllImported
+# Employee Integration codeunit 
+IP - GetRecord, PostRecord, PutRecord, PatchRecord, DeleteRecord called from Interface Handler page
 
-# APIPermissions PermSet
+IP GetRecord
+------------
+CheckUrlandReset
+ResponseMessage - RestMgmt.MakeContentRequest, GetContentWithHeader, EmployeePayload.GetEmployeePayload, 
+EmployeeResponse.PostResponse
+
+LP CheckUrlAndReset
+LP GetContentwithHeader
+
+# Employee Payload codeunit 
+IP Get Employee Payload
+IP Post Employee Payload
+IP Put Employee Payload
+IP Patch Employee Payload
+IP Delete Employee Payload
+
+# Employee Response codeunit
+IP Get Response
+IP Post Response
+IP Put Response
+IP Patch Response
+IP Delete Response
+
+LP ReviewResponseStatusCode
+LP ParseEmployeeResponse
+LP WriteRecordsinDatabase
+
+-----------------
+# No Auth Product
+-----------------
+# Product table
+GP - Delete All Imported
+# Product Header page
+# Product Lines page
+Action - Delete All Imported
+
+# Product Integration codeunit
+IP - GetRecord, PostRecord, PutRecord, PatchRecord, DeleteRecord called from Interface Handler page
+
+IP GetRecord
+------------
+CheckUrlandReset
+ResponseMessage - RestMgmt.MakeContentRequest, GetContentWithHeader, EmployeePayload.GetEmployeePayload, 
+EmployeeResponse.PostResponse
+
+LP CheckUrlAndReset
+LP GetContentwithHeader
+
+# Product Payload codeunit 
+IP Get Product Payload
+IP Post Product Payload
+IP Put Product Payload
+IP Patch Product Payload
+IP Delete Product Payload
+
+# Product Response codeunit
+IP Get Response
+IP Post Response
+IP Put Response
+IP Patch Response
+IP Delete Response
+
+LP WriteRecordinDatabase
+LP ReadTheObject
+LP ReadTheArray
+LP WriteHeaderInDatabase
+LP WriteLineinDatabase

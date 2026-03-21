@@ -2,6 +2,9 @@ namespace KNHAPIConsumption;
 
 codeunit 53703 "KNH Employee Response"
 {
+    var
+        ResponseText: Text;
+
     internal procedure GetResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
@@ -107,7 +110,4 @@ codeunit 53703 "KNH Employee Response"
         Clear(ResponseSalary);
         Clear(ResponseAge);
     end;
-
-    var
-        ResponseText: Text;
 }

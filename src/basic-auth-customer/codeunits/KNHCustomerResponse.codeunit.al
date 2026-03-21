@@ -2,6 +2,9 @@ namespace KNHAPIConsumption;
 
 codeunit 53709 "KNH Customer Response"
 {
+    var
+        ResponseText: Text;
+
     internal procedure GetResponse(ResponseMsg: HttpResponseMessage)
     begin
         this.ReviewResponseStatusCode(ResponseMsg);
@@ -127,7 +130,4 @@ codeunit 53709 "KNH Customer Response"
         KNHCustomer.Validate("Source System Id", ResponseGUID);
         KNHCustomer.Insert(true);
     end;
-
-    var
-        ResponseText: Text;
 }

@@ -4,16 +4,26 @@ using System.Text;
 
 codeunit 53707 "KNH Customer Integration"
 {
+    var
+        KNHCustomerAPIPayload: Codeunit "KNH Customer Payload";
+        KNHCustomerAPIResponse: Codeunit "KNH Customer Response";
+        KNHRestApiMgmt: Codeunit "KNH Rest Api Mgmt.";
+        //client: HttpClient;
+        ResponseStatus: Boolean;
+        HttpMethod: Enum "Http Method";
+        ResponseMsg: HttpResponseMessage;
+        Password, Username : Text;
+
     procedure GetRecords(URLToAccess: Text)
     begin
-        this.CheckMandatoryAndReset(URLToAccess);
+        this.CheckUrlAndReset(URLToAccess);
         this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.KNHCustomerAPIPayload.GetCustomerPayload()), this.HttpMethod::GET);
         this.KNHCustomerAPIResponse.GetResponse(this.ResponseMsg);
     end;
 
     procedure PostRecord(URLToAccess: Text)
     begin
-        this.CheckMandatoryAndReset(URLToAccess);
+        this.CheckUrlAndReset(URLToAccess);
         this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.KNHCustomerAPIPayload.PostCustomerPayload()), this.HttpMethod::POST);
         this.KNHCustomerAPIResponse.PostResponse(this.ResponseMsg);
     end;
@@ -25,19 +35,19 @@ codeunit 53707 "KNH Customer Integration"
 
     procedure PatchRecord(URLToAccess: Text)
     begin
-        this.CheckMandatoryAndReset(URLToAccess);
+        this.CheckUrlAndReset(URLToAccess);
         this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.KNHCustomerAPIPayload.PatchCustomerPayload()), this.HttpMethod::PATCH);
         this.KNHCustomerAPIResponse.PatchResponse(this.ResponseMsg);
     end;
 
     procedure DeleteRecord(URLToAccess: Text)
     begin
-        this.CheckMandatoryAndReset(URLToAccess);
+        this.CheckUrlAndReset(URLToAccess);
         this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.KNHCustomerAPIPayload.DeleteCustomerPayload()), this.HttpMethod::DELETE);
         this.KNHCustomerAPIResponse.DeleteResponse(this.ResponseMsg);
     end;
 
-    local procedure CheckMandatoryAndReset(URLToAccess: Text)
+    local procedure CheckUrlAndReset(URLToAccess: Text)
     begin
         if URLToAccess = '' then
             Error('URL cannot be empty');
@@ -49,22 +59,6 @@ codeunit 53707 "KNH Customer Integration"
         Clear(this.HttpMethod);
         Clear(this.ResponseStatus);
     end;
-
-    /*
-    local procedure GetContentwithHeader(payload: Text) content: HttpContent
-    var
-        contentHeaders: HttpHeaders;
-    begin
-        clear(this.client);
-
-        if payload <> '' then
-            content.WriteFrom(payload);
-
-        contentHeaders := this.client.DefaultRequestHeaders();
-        contentHeaders.Add('Authorization', this.GetAuthroizationHeader());
-        contentHeaders.Add('Accept', 'application/json');
-    end;
-    */
 
     local procedure GetHttpRequestMessage(payload: Text) RequestMessage: HttpRequestMessage
     var
@@ -98,14 +92,4 @@ codeunit 53707 "KNH Customer Integration"
         this.Username := PassedUsername;
         this.Password := Passedpassword;
     end;
-
-    var
-        KNHCustomerAPIPayload: Codeunit "KNH Customer Payload";
-        KNHCustomerAPIResponse: Codeunit "KNH Customer Response";
-        KNHRestApiMgmt: Codeunit "KNH Rest Api Mgmt.";
-        //client: HttpClient;
-        ResponseStatus: Boolean;
-        HttpMethod: Enum "Http Method";
-        ResponseMsg: HttpResponseMessage;
-        Password, Username : Text;
 }
