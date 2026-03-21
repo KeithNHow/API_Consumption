@@ -1,5 +1,7 @@
-//Proc Make Content Request - Url, client, content, method - returns response
-//Proc Make Request - Url, request, method - returns response 
+///<summary>
+///Proc Make Content Request - Url, client, content, method - returns response
+///Proc Make Request - Url, request, method - returns response 
+///</summary>
 
 namespace KNHAPIConsumption;
 

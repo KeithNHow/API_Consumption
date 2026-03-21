@@ -1,14 +1,15 @@
 # Dynamics365BC-API-Consumption
 Code examples and tutorials for consuming APIs in MS D365 BC
+
 Program begins with API Handler page in the core module. The page consists of three groups.
-- Basic-auth customer API
-- No-auth employee API
-- No-auth product Hdr + lines API 
-Each group has three ref fields - Website, Url and Output
-Each group contains action types - Get, Post, Put, Patch, Delete
-- Each action type has a get proc and an execute proc
-- The get proc returns a url to the url field
-- The execute proc performs an action
+- Basic-auth customer API, No-auth employee API, No-auth product Hdr + lines API 
+Each group has three reference fields - Website, Url and Output
+Each group contains action types for Get, Post, Put, Patch, Delete
+
+Each action type has a Get procedure and an execute procedure
+- The get procedure returns a url to the url field
+- The execute procedure performs an action
+
 Get - Reads record from api table
 Post - creates record in api table
 Put - updates all fields for record in api table
@@ -27,30 +28,31 @@ Product Header table - 3 fields - Id, Name, "Not Reserved"
 Product Line table - 4 fields - Id, "Line No.", Parameter, Value
 
 Log Entries table - 9 fields "Entry No.", Url, Method, Request, Response, "Resp Code", Successful, "Requested By", "Logged On"
-Procs - Download Request, Download Response, Add New Entry
+Procedures - Download Request, Download Response, Add New Entry
+
+# Core
+------
+# Rest API Management codeunit
+MakeContentRequest, MakeRequest, LogApiTransaction
+# Interface Handler card page 
+Drilldown Actions 
+# Interface Log Entries page
+Rec DownloadReq, DownloadResp
+# Interface Log Entries table
+DownloadRequest Procedure - called from
+DownloadResponse Procedure - called from
+AddNewLogEntry Procedure - called from
 
 # Basic Auth
 ------------
 # Codeunits 
-CustomerAPIIntegration
-CustomerAPIPayload
-CustomerAPIResponse
+CustomerAPIIntegration, CustomerAPIPayload, CustomerAPIResponse
 # Pages
-Customer - Card
-Customers - List
+CustomerCard, CustomerList
 # Tables
 Customer
 
-# Core
-------
-# RestAPIMgmt CU
-MakeReq, LogApiTrans (AddNewLogEntry)
-# APIHandler Page 
-Drilldown Actions 
-# APILogEntries Page
-Rec DownloadReq, DownloadResp
-# APILogEntry Table
-DownloadReq (DownloadFrStr), DownloadResp (DownloadFrStr), AddNewLogEntry (HandleStreams), HandleStreams
+
 
 # Dummy - Rest API
 ------------------

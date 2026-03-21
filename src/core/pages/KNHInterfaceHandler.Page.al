@@ -1,3 +1,6 @@
+///<summary>
+/// This page is the page that controls the API imports.
+///</summary>
 namespace KNHAPIConsumption;
 
 page 53700 "KNH Interface Handler"

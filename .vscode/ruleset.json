@@ -1,0 +1,10 @@
+{
+    "Name": "Hide the below warnings",
+    "rules": [
+        {
+            "id": "AW0004",
+            "action": "Hidden",
+            "justification": "A Blob cannot be used as a source expression for a page field"
+        }
+    ]
+}
