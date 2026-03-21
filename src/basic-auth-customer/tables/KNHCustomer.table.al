@@ -1,4 +1,7 @@
-namespace APIConsumption;
+///<summary>
+///This table is used for the basic authorisation API example  
+///</summary>
+namespace KNHAPIConsumption;
 
 table 53704 "KNH Customer"
 {
@@ -6,6 +9,7 @@ table 53704 "KNH Customer"
     LookupPageId = "KNH Customer";
     DrillDownPageId = "KNH Customer";
     DataClassification = CustomerContent;
+    AllowInCustomizations = AsReadWrite;
 
     fields
     {

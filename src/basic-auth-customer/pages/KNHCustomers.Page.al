@@ -1,4 +1,4 @@
-namespace APIConsumption;
+namespace KNHAPIConsumption;
 
 page 53707 "KNH Customers"
 {

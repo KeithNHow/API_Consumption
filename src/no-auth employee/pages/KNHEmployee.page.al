@@ -1,4 +1,4 @@
-namespace APIConsumption;
+namespace KNHAPIConsumption;
 
 page 53703 "KNH Employee"
 {

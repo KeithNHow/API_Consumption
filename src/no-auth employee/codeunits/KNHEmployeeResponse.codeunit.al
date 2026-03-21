@@ -1,4 +1,4 @@
-namespace APIConsumption;
+namespace KNHAPIConsumption;
 
 codeunit 53703 "KNH Employee Response"
 {

@@ -1,9 +1,13 @@
+namespace KNHAPIConsumption;
+
 table 53702 "KNH Product Header"
 {
     Caption = 'Product Import';
     DataClassification = CustomerContent;
     LookupPageId = "KNH Products";
     DrillDownPageId = "KNH Products";
+    AllowInCustomizations = AsReadWrite;
+
     fields
     {
         field(1; Id; Code[50])

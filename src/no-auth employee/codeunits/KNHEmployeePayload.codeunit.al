@@ -1,4 +1,4 @@
-namespace APIConsumption;
+namespace KNHAPIConsumption;
 
 codeunit 53702 "KNH Employee Payload"
 {

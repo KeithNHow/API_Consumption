@@ -1,6 +1,7 @@
 namespace APIConsumption;
+using KNHAPIConsumption;
 
-permissionset 53700 "KNH API Permissions"
+permissionset 53700 KNHAPIConsumption
 {
     Assignable = true;
     Caption = 'API Permissions', MaxLength = 30;

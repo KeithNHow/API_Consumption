@@ -1,7 +1,7 @@
 //Proc Make Content Request - Url, client, content, method - returns response
 //Proc Make Request - Url, request, method - returns response 
 
-namespace APIConsumption;
+namespace KNHAPIConsumption;
 
 codeunit 53700 "KNH Rest Api Mgmt."
 {

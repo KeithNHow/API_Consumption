@@ -1,4 +1,4 @@
-namespace APIConsumption;
+namespace KNHAPIConsumption;
 using System.RestClient;
 
 codeunit 53704 "KNH Product Integration"

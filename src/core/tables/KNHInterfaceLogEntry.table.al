@@ -1,4 +1,4 @@
-namespace APIConsumption;
+namespace KNHAPIConsumption;
 using System.RestClient;
 
 table 53700 "KNH Interface Log Entry"
@@ -7,6 +7,8 @@ table 53700 "KNH Interface Log Entry"
     DataClassification = CustomerContent;
     LookupPageId = "KNH Interface Log Entries";
     DrillDownPageId = "KNH Interface Log Entries";
+    AllowInCustomizations = AsReadWrite;
+
     fields
     {
         field(1; "Entry No."; Integer)

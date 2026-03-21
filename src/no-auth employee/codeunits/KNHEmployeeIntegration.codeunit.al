@@ -1,4 +1,4 @@
-namespace APIConsumption;
+namespace KNHAPIConsumption;
 using System.RestClient;
 
 codeunit 53701 "KNH Employee Integration"

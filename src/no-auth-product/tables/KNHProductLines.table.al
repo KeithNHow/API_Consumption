@@ -1,9 +1,13 @@
+namespace KNHAPIConsumption;
+
 table 53703 "KNH Product Lines"
 {
     Caption = 'Product Lines Import';
     DataClassification = CustomerContent;
     LookupPageId = "KNH Product Subform";
     DrillDownPageId = "KNH Product Subform";
+    AllowInCustomizations = AsReadWrite;
+
     fields
     {
         field(1; Id; Code[50])
