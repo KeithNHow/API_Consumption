@@ -5,8 +5,8 @@ table 53700 "KNH Interface Log Entry"
 {
     Caption = 'API Log Entries';
     DataClassification = CustomerContent;
-    LookupPageId = "KNH Interface Log Entries";
-    DrillDownPageId = "KNH Interface Log Entries";
+    LookupPageId = "KNH API Log Entries";
+    DrillDownPageId = "KNH API Log Entries";
     AllowInCustomizations = AsReadWrite;
 
     fields

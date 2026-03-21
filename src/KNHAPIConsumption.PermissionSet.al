@@ -23,7 +23,7 @@ permissionset 53700 KNHAPIConsumption
         codeunit "KNH Product Integration" = X,
         codeunit "KNH Rest Api Mgmt." = X,
         page "KNH API Interface" = X,
-        page "KNH Interface Log Entries" = X,
+        page "KNH API Log Entries" = X,
         page "KNH Products" = X,
         page "KNH Product Subform" = X,
         tabledata "KNH Customer" = RIMD,

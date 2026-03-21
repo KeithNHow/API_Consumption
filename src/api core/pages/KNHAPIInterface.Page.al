@@ -445,7 +445,7 @@ page 53700 "KNH API Interface"
                 Caption = 'API Log Entries';
                 ToolTip = 'Shows the API log entries.';
                 Image = ErrorLog;
-                RunObject = page "KNH Interface Log Entries";
+                RunObject = page "KNH API Log Entries";
             }
             action(CustomerAPI)
             {

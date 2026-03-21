@@ -37,7 +37,7 @@ Page Area
 
 Page Actions - Log Entries, Customer records, Employee records, Product records 
 
-# Interface Log Entries list page
+# API Log Entries list page
 Action - Download Request 
 Action - Download Response
 Action - Delete All
