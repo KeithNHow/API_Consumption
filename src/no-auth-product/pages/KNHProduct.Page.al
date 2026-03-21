@@ -1,11 +1,11 @@
 namespace KNHAPIConsumption;
 
-page 53704 "KNH Products"
+page 53705 "KNH Product"
 {
     ApplicationArea = All;
     UsageCategory = Lists;
-    Caption = 'Products API';
-    PageType = List;
+    Caption = 'Product API';
+    PageType = Document;
     RefreshOnActivate = true;
     DataCaptionFields = Id, Name;
     SourceTable = "KNH Product Header";
@@ -14,7 +14,7 @@ page 53704 "KNH Products"
     {
         area(Content)
         {
-            repeater(General)
+            group(General)
             {
                 Caption = 'General';
 
@@ -31,26 +31,11 @@ page 53704 "KNH Products"
                     ToolTip = 'Specifies the value of the Not Reserved field.', Comment = '%';
                 }
             }
-        }
-    }
-    actions
-    {
-        area(Processing)
-        {
-            action(Delete)
+            part(Lines; "KNH Product Subform")
             {
                 ApplicationArea = All;
-                Caption = 'Delete All';
-                ToolTip = 'Deletes all records.';
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedOnly = true;
-                Image = DeleteAllBreakpoints;
-                trigger OnAction()
-                begin
-                    if Confirm('Do you want to delete all records?') then
-                        Rec.DeleteAllImported();
-                end;
+                SubPageLink = Id = field(Id);
+                UpdatePropagation = Both;
             }
         }
     }

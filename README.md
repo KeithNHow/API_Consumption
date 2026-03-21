@@ -24,7 +24,7 @@ IP DownloadRequest called from Interface Log Entries page
 IP DownloadResponse Called from Interface Log Entries page
 IP AddNewLogEntry Called from Rest Mgmt codeunit
 
-# Interface Handler card page 
+# API Interface card page 
 Page Area
     Group Customer References - Website, Execute Url, Username, Password, Output
     Group Customer Actions - GetUrlLbl, GetLbl, same for Post, Put, Patch and Delete
@@ -42,7 +42,7 @@ Action - Download Request
 Action - Download Response
 Action - Delete All
 
-# Rest Management codeunit
+# Rest API Management codeunit
 IP MakeContentRequest called from EmloyeeIntegration and ProductIntegration
 IP MakeRequest called from CustomerIntegration
 LP LogTransaction called from MakeContentRequest and MakeRequest
@@ -57,7 +57,7 @@ Action - Delete Imported
 # Customer list page
 
 # Customer Integration codeunit 
-IP - GetRecord, PostRecord, PutRecord, PatchRecord, DeleteRecord called from Interface Handler page
+IP - GetRecord, PostRecord, PutRecord, PatchRecord, DeleteRecord called from API Interface page
 
 IP GetRecord
 ------------
@@ -98,7 +98,7 @@ Action - Delete Imported
 # Employee List page
 
 # Employee Integration codeunit 
-IP - GetRecord, PostRecord, PutRecord, PatchRecord, DeleteRecord called from Interface Handler page
+IP - GetRecord, PostRecord, PutRecord, PatchRecord, DeleteRecord called from API Interface page
 
 IP GetRecord
 ------------
@@ -137,7 +137,7 @@ Action - Delete All Imported
 # Product subform page
 
 # Product Integration codeunit
-IP - GetRecord, PostRecord, PutRecord, PatchRecord, DeleteRecord called from Interface Handler page
+IP - GetRecord, PostRecord, PutRecord, PatchRecord, DeleteRecord called from API Interface page
 
 IP GetRecord
 ------------

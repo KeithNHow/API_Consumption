@@ -6,7 +6,7 @@
 ///</summary>
 namespace KNHAPIConsumption;
 
-page 53700 "KNH Interface Handler"
+page 53700 "KNH API Interface"
 {
     Caption = 'API Interface';
     PageType = Card;
@@ -90,7 +90,7 @@ page 53700 "KNH Interface Handler"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.CustBasicAuthUrlToAccess := 'http://localhost:7048/BC250/api/v2.0/companies(dd117d67-3f89-ef11-8a6d-7c1e521d1853)/customers';
+                                this.CustBasicAuthUrlToAccess := '';
                             end;
                         }
                         field(CustomerPostExecute; this.PostLbl)
@@ -111,7 +111,7 @@ page 53700 "KNH Interface Handler"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.CustBasicAuthUrlToAccess := 'http://localhost:7048/BC250/api/v2.0/companies(dd117d67-3f89-ef11-8a6d-7c1e521d1853)/customers';
+                                this.CustBasicAuthUrlToAccess := '';
                             end;
                         }
                         field(CustomerPutExecute; this.PutLbl)
@@ -153,7 +153,7 @@ page 53700 "KNH Interface Handler"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.CustBasicAuthUrlToAccess := 'http://localhost:7048/BC250/api/v2.0/companies(dd117d67-3f89-ef11-8a6d-7c1e521d1853)/customers(%1)';
+                                this.CustBasicAuthUrlToAccess := '';
                             end;
                         }
                         field(CustomerDeleteExecute; this.DeleteLbl)

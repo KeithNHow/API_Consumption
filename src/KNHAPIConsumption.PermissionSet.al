@@ -22,7 +22,7 @@ permissionset 53700 KNHAPIConsumption
         codeunit "KNH Product Payload" = X,
         codeunit "KNH Product Integration" = X,
         codeunit "KNH Rest Api Mgmt." = X,
-        page "KNH Interface Handler" = X,
+        page "KNH API Interface" = X,
         page "KNH Interface Log Entries" = X,
         page "KNH Products" = X,
         page "KNH Product Subform" = X,
