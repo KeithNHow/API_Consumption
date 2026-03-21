@@ -4,7 +4,7 @@ page 53703 "KNH Employee"
 {
     ApplicationArea = All;
     UsageCategory = Lists;
-    Caption = 'Employee List';
+    Caption = 'Employee API List';
     PageType = Card;
     SourceTable = "KNH Employee";
 

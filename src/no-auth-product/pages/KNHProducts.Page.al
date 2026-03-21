@@ -1,23 +1,23 @@
 namespace KNHAPIConsumption;
 
-page 53704 "KNH Products"
+page 53705 "KNH Products"
 {
-    Caption = 'Products Import';
-    PageType = List;
-    DataCaptionFields = Id, Name;
-    CardPageId = "KNH Product";
-    SourceTable = "KNH Product Header";
-    Editable = false;
-    RefreshOnActivate = true;
     ApplicationArea = All;
     UsageCategory = Lists;
+    Caption = 'Products API';
+    PageType = Document;
+    RefreshOnActivate = true;
+    DataCaptionFields = Id, Name;
+    SourceTable = "KNH Product Header";
 
     layout
     {
         area(Content)
         {
-            repeater(General)
+            group(General)
             {
+                Caption = 'General';
+
                 field(id; Rec.Id)
                 {
                     ToolTip = 'Specifies the value of the id field.';
@@ -30,6 +30,12 @@ page 53704 "KNH Products"
                 {
                     ToolTip = 'Specifies the value of the Not Reserved field.', Comment = '%';
                 }
+            }
+            part(Lines; "KNH Product Subform")
+            {
+                ApplicationArea = All;
+                SubPageLink = Id = field(Id);
+                UpdatePropagation = Both;
             }
         }
     }
@@ -48,7 +54,7 @@ page 53704 "KNH Products"
                 Image = DeleteAllBreakpoints;
                 trigger OnAction()
                 begin
-                    if Confirm('Do you want to delete all record?') then
+                    if Confirm('Do you want to delete all records?') then
                         Rec.DeleteAllImported();
                 end;
             }

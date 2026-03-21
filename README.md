@@ -37,7 +37,7 @@ Page Area
 
 Page Actions - Log Entries, Customer records, Employee records, Product records 
 
-# Interface Log Entries page
+# Interface Log Entries list page
 Action - Download Request 
 Action - Download Response
 Action - Delete All
@@ -132,9 +132,9 @@ LP WriteRecordsinDatabase
 -----------------
 # Product table
 GP - Delete All Imported
-# Product Header page
-# Product Lines page
+# Product document page
 Action - Delete All Imported
+# Product subform page
 
 # Product Integration codeunit
 IP - GetRecord, PostRecord, PutRecord, PatchRecord, DeleteRecord called from Interface Handler page

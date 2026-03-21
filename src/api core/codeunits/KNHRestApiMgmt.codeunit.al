@@ -1,4 +1,7 @@
 ///<summary>
+/// MakeContentRequest - Receives values for Url, Httpclient, HttpContent, HttpMethod, HttpResponse, Checks which HttpMethod has made call, and calls log trans proc.
+/// MakeRequest - Receives values for Url, HttpRequest, HttpMethod, HttpResponse, Checks which HttpMethod has made call, and calls log trans proc
+/// LogTransaction - Recives values for url, HttpMethod, RequestMessage, ResponseMessage, ResponseStatus, Reads content and calls AddNewLogEntry proc
 ///</summary>
 namespace KNHAPIConsumption;
 
@@ -25,7 +28,7 @@ codeunit 53700 "KNH Rest Api Mgmt."
                 Request.Method := 'DELETE';
         end;
         ResponseStatus := Client.Send(Request, Response);
-        this.LogApiTransaction(URLToAccess, HttpMethod, Request, Response, ResponseStatus);
+        this.LogTransaction(URLToAccess, HttpMethod, Request, Response, ResponseStatus);
     end;
 
     internal procedure MakeRequest(URLToAccess: Text; Request: HttpRequestMessage; HttpMethod: Enum System.RestClient."Http Method") response: HttpResponseMessage
@@ -48,10 +51,10 @@ codeunit 53700 "KNH Rest Api Mgmt."
                 Request.Method := 'DELETE';
         end;
         ResponseStatus := Client.Send(Request, response);
-        this.LogApiTransaction(URLToAccess, HttpMethod, Request, response, ResponseStatus);
+        this.LogTransaction(URLToAccess, HttpMethod, Request, response, ResponseStatus);
     end;
 
-    local procedure LogApiTransaction(URLToAccess: Text; HttpMethod: Enum System.RestClient."Http Method"; Request: HttpRequestMessage; var Response: HttpResponseMessage; ResponseStatus: Boolean)
+    local procedure LogTransaction(URLToAccess: Text; HttpMethod: Enum System.RestClient."Http Method"; Request: HttpRequestMessage; var Response: HttpResponseMessage; ResponseStatus: Boolean)
     var
         LogEntry: Record "KNH Interface Log Entry";
         RequestInstream, ResponseInstream : InStream;

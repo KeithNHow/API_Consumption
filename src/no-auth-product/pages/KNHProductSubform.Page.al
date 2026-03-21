@@ -3,7 +3,7 @@ namespace KNHAPIConsumption;
 page 53706 "KNH Product Subform"
 {
     ApplicationArea = All;
-    Caption = 'Product Lines Import';
+    Caption = 'Products API Lines';
     PageType = ListPart;
     SourceTable = "KNH Product Lines";
 

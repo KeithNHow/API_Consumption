@@ -2,6 +2,11 @@
     "Name": "Hide the below warnings",
     "rules": [
         {
+            "id": "AW0006",
+            "action": "Hidden",
+            "description": "The page requires use the UsageCategory and ApplicationArea properties to be searchable."        
+        },
+        {        
             "id": "AW0004",
             "action": "Hidden",
             "justification": "A Blob cannot be used as a source expression for a page field"

@@ -8,7 +8,7 @@ namespace KNHAPIConsumption;
 
 page 53700 "KNH Interface Handler"
 {
-    Caption = 'API Handler';
+    Caption = 'API Interface';
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
@@ -69,7 +69,7 @@ page 53700 "KNH Interface Handler"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.CustBasicAuthUrlToAccess := 'http://localhost:7048/BC250/api/v2.0/companies(dd117d67-3f89-ef11-8a6d-7c1e521d1853)/customers';
+                                this.CustBasicAuthUrlToAccess := '';
                             end;
                         }
                         field(CustomerGetExecute; this.GetLbl)
@@ -442,29 +442,29 @@ page 53700 "KNH Interface Handler"
         {
             action(LogEntries)
             {
-                Caption = 'Log Entries';
-                ToolTip = 'Shows the log entries.';
+                Caption = 'API Log Entries';
+                ToolTip = 'Shows the API log entries.';
                 Image = ErrorLog;
                 RunObject = page "KNH Interface Log Entries";
             }
             action(CustomerAPI)
             {
-                Caption = 'Customer Records';
-                ToolTip = 'Shows the Customer records.';
+                Caption = 'Customer API Records';
+                ToolTip = 'Shows the Customer API records.';
                 Image = Customer;
                 RunObject = page "KNH Customers";
             }
             action(EmployeeAPI)
             {
-                Caption = 'Employee Records';
-                ToolTip = 'Shows the Employee records.';
+                Caption = 'Employee API Records';
+                ToolTip = 'Shows the Employee API records.';
                 Image = Employee;
                 RunObject = page "KNH Employees";
             }
             action(ProductAPI)
             {
-                Caption = 'Product Records';
-                ToolTip = 'Shows the Product records.';
+                Caption = 'Product API Records';
+                ToolTip = 'Shows the Product API records.';
                 Image = Item;
                 RunObject = page "KNH Products";
             }
