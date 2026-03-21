@@ -6,8 +6,8 @@ namespace KNHAPIConsumption;
 table 53704 "KNH Customer"
 {
     Caption = 'Customer API';
-    LookupPageId = "KNH Customer";
-    DrillDownPageId = "KNH Customer";
+    LookupPageId = "KNH Customer List";
+    DrillDownPageId = "KNH Customer List";
     DataClassification = CustomerContent;
     AllowInCustomizations = AsReadWrite;
 

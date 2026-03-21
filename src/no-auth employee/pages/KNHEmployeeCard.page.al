@@ -1,6 +1,6 @@
 namespace KNHAPIConsumption;
 
-page 53703 "KNH Employee"
+page 53703 "KNH Employee Card"
 {
     ApplicationArea = All;
     UsageCategory = Lists;

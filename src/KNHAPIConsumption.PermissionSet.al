@@ -7,8 +7,8 @@ permissionset 53700 KNHAPIConsumption
     Caption = 'API Permissions', MaxLength = 30;
     Permissions = table "KNH Employee" = X,
         tabledata "KNH Employee" = RMID,
-        page "KNH Employees" = X,
-        page "KNH Employee" = X,
+        page "KNH Employee List" = X,
+        page "KNH Employee Card" = X,
         codeunit "KNH Employee Response" = X,
         tabledata "KNH Interface Log Entry" = RIMD,
         tabledata "KNH Product Header" = RIMD,
@@ -31,6 +31,6 @@ permissionset 53700 KNHAPIConsumption
         codeunit "KNH Customer Integration" = X,
         codeunit "KNH Customer Payload" = X,
         codeunit "KNH Customer Response" = X,
-        page "KNH Customer" = X,
-        page "KNH Customers" = X;
+        page "KNH Customer Card" = X,
+        page "KNH Customer List" = X;
 }

@@ -1,20 +1,21 @@
 namespace KNHAPIConsumption;
 
-page 53707 "KNH Customers"
+page 53708 "KNH Customer Card"
 {
     ApplicationArea = All;
-    Caption = 'Customer API Card';
-    PageType = List;
-    SourceTable = "KNH Customer";
-    CardPageId = "KNH Customer";
     UsageCategory = Lists;
+    Caption = 'Customers API Card';
+    PageType = Card;
+    SourceTable = "KNH Customer";
 
     layout
     {
         area(Content)
         {
-            repeater(General)
+            group(General)
             {
+                Caption = 'General';
+
                 field("No."; Rec."No.")
                 {
                     ToolTip = 'Specifies the value of the No. field.';
@@ -22,6 +23,10 @@ page 53707 "KNH Customers"
                 field(Name; Rec.Name)
                 {
                     ToolTip = 'Specifies the value of the Name field.';
+                }
+                field("Phone No."; Rec."Phone No.")
+                {
+                    ToolTip = 'Specifies the value of the Phone No. field.';
                 }
                 field(Address; Rec.Address)
                 {
@@ -31,38 +36,11 @@ page 53707 "KNH Customers"
                 {
                     ToolTip = 'Specifies the value of the Address 2 field.';
                 }
-                field("Phone No."; Rec."Phone No.")
-                {
-                    ToolTip = 'Specifies the value of the Phone No. field.';
-                }
                 field("Source System Id"; Rec."Source System Id")
                 {
                     ToolTip = 'Specifies the value of the Source System Id field.';
                 }
             }
-        }
-    }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(DeleteImported)
-            {
-                ApplicationArea = All;
-                Caption = 'Delete All';
-                ToolTip = 'Deletes all records.';
-                Image = DeleteAllBreakpoints;
-                trigger OnAction()
-                begin
-                    if Confirm('Do you want to delete all record?') then
-                        Rec.DeleteAllImported();
-                end;
-            }
-        }
-        area(Promoted)
-        {
-            actionref(DeleteImported_Ref; DeleteImported) { }
         }
     }
 }

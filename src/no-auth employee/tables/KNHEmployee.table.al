@@ -4,8 +4,8 @@ table 53701 "KNH Employee"
 {
     Caption = 'Employees Import';
     DataClassification = CustomerContent;
-    DrillDownPageId = "KNH Employees";
-    LookupPageId = "KNH Employees";
+    DrillDownPageId = "KNH Employee List";
+    LookupPageId = "KNH Employee List";
     DataCaptionFields = Id, Name;
     AllowInCustomizations = AsReadWrite;
 

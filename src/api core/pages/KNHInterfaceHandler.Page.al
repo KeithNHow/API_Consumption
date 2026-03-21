@@ -132,7 +132,7 @@ page 53700 "KNH Interface Handler"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.CustBasicAuthUrlToAccess := 'http://localhost:7048/BC250/api/v2.0/companies(dd117d67-3f89-ef11-8a6d-7c1e521d1853)/customers(%1)';
+                                this.CustBasicAuthUrlToAccess := '';
                             end;
                         }
                         field(CustomerPatchExecute; this.PatchLbl)
@@ -452,14 +452,14 @@ page 53700 "KNH Interface Handler"
                 Caption = 'Customer API Records';
                 ToolTip = 'Shows the Customer API records.';
                 Image = Customer;
-                RunObject = page "KNH Customers";
+                RunObject = page "KNH Customer List";
             }
             action(EmployeeAPI)
             {
                 Caption = 'Employee API Records';
                 ToolTip = 'Shows the Employee API records.';
                 Image = Employee;
-                RunObject = page "KNH Employees";
+                RunObject = page "KNH Employee List";
             }
             action(ProductAPI)
             {
@@ -482,8 +482,8 @@ page 53700 "KNH Interface Handler"
     trigger OnOpenPage()
     begin
         this.ProductNoAuthResponse := CopyStr(GetUrl(ClientType::Web, CompanyName, ObjectType::Page, Page::"KNH Products"), 1, 1024);
-        this.EmployeeNoAuthResponse := CopyStr(GetUrl(ClientType::Web, CompanyName, ObjectType::Page, Page::"KNH Employees"), 1, 1024);
-        this.CustBasicAuthResponse := CopyStr(GetUrl(ClientType::Web, CompanyName, ObjectType::Page, Page::"KNH Customer"), 1, 1024);
+        this.EmployeeNoAuthResponse := CopyStr(GetUrl(ClientType::Web, CompanyName, ObjectType::Page, Page::"KNH Employee List"), 1, 1024);
+        this.CustBasicAuthResponse := CopyStr(GetUrl(ClientType::Web, CompanyName, ObjectType::Page, Page::"KNH Customer List"), 1, 1024);
     end;
 
     var

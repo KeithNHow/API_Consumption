@@ -1,13 +1,12 @@
 namespace KNHAPIConsumption;
 
-page 53702 "KNH Employees"
+page 53707 "KNH Customer List"
 {
     ApplicationArea = All;
-    Caption = 'Employee API Card';
+    Caption = 'Customers API List';
     PageType = List;
-    Editable = false;
-    SourceTable = "KNH Employee";
-    CardPageId = "KNH Employee";
+    SourceTable = "KNH Customer";
+    CardPageId = "KNH Customer Card";
     UsageCategory = Lists;
 
     layout
@@ -16,25 +15,18 @@ page 53702 "KNH Employees"
         {
             repeater(General)
             {
-                field(Id; Rec.Id)
+                field("No."; Rec."No.")
                 {
-                    ToolTip = 'Specifies the value of the ID field.';
+                    ToolTip = 'Specifies the value of the No. field.';
                 }
                 field(Name; Rec.Name)
                 {
-                    ToolTip = 'Specifies the value of the Employee Name field.';
-                }
-                field(Age; Rec.Age)
-                {
-                    ToolTip = 'Specifies the value of the Employee Age field.';
-                }
-                field(Salary; Rec.Salary)
-                {
-                    ToolTip = 'Specifies the value of the Employee Salary field.';
+                    ToolTip = 'Specifies the value of the Name field.';
                 }
             }
         }
     }
+
     actions
     {
         area(Processing)
