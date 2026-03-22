@@ -7,6 +7,8 @@ page 53703 "KNH Employee Card"
     Caption = 'Employee API Card';
     PageType = Card;
     SourceTable = "KNH Employee";
+    RefreshOnActivate = true;
+    DataCaptionFields = Id, Name;
 
     layout
     {

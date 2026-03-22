@@ -348,7 +348,7 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHEmployeeAPIIntegration.GetRecord(this.EmployeeUrlToAccess);
+                                this.KNHProductAPIIntegration.GetRecord(this.ProductUrlToAccess);
                             end;
                         }
                     }

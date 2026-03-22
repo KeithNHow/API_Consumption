@@ -132,8 +132,9 @@ LP WriteRecordsinDatabase
 -----------------
 # Product table
 GP - Delete All Imported
-# Product document page
+# Products page
 Action - Delete All Imported
+# Product document page
 # Product subform page
 
 # Product Integration codeunit

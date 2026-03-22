@@ -3,12 +3,12 @@ namespace KNHAPIConsumption;
 page 53702 "KNH Employee List"
 {
     ApplicationArea = All;
+    UsageCategory = Lists;
     Caption = 'Employee API List';
     PageType = List;
     Editable = false;
     SourceTable = "KNH Employee";
     CardPageId = "KNH Employee Card";
-    UsageCategory = Lists;
 
     layout
     {

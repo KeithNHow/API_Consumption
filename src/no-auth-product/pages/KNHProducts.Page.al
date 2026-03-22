@@ -6,9 +6,9 @@ page 53704 "KNH Products"
     UsageCategory = Lists;
     Caption = 'Products API';
     PageType = List;
-    RefreshOnActivate = true;
-    DataCaptionFields = Id, Name;
+    Editable = false;
     SourceTable = "KNH Product Header";
+    CardPageId = "KNH Product";
 
     layout
     {

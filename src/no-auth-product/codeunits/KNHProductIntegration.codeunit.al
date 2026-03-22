@@ -12,7 +12,7 @@ codeunit 53704 "KNH Product Integration"
         Client: HttpClient;
         ResponseMsg: HttpResponseMessage;
 
-    internal procedure GetRecords(URLToAccess: Text)
+    internal procedure GetRecord(URLToAccess: Text)
     begin
         this.CheckUrlAndReset(URLToAccess);
         this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHProductAPIPayload.GetProductPayload()), this.HttpMethod::GET);
