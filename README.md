@@ -68,7 +68,6 @@ ResponseMessage - RestMgmt.MakeContentRequest, GetContentWithHeader, EmployeePay
 EmployeeResponse.PostResponse
 
 LP CheckUrlAndReset
-LP GetContentwithHeader
 LP GetHttpRequestMessage calls GetAuthorizationHeader
 LP GetAuthroizationHeader
 

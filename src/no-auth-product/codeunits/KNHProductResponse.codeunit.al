@@ -91,7 +91,7 @@ codeunit 53706 "KNH Product Response"
 
         for i := 1 to parameterkeys.Count() do begin
             ProductDetailObject.Get(parameterkeys.Get(i), ProductToken);
-            this.writeLineinDatabase(ResponseID, parameterkeys.Get(i), ProductToken.AsValue().AsText());
+            this.WriteLineinDatabase(ResponseID, parameterkeys.Get(i), ProductToken.AsValue().AsText());
         end;
     end;
 
