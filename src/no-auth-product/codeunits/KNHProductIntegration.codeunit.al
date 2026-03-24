@@ -4,47 +4,47 @@ using System.RestClient;
 codeunit 53704 "KNH Product Integration"
 {
     var
-        KNHProductAPIPayload: Codeunit "KNH Product Payload";
-        KNHProductAPIResponse: Codeunit "KNH Product Response";
-        KNHRestApiMgmt: Codeunit "KNH Rest Api Mgmt.";
+        KNHProductPayload: Codeunit "KNH Product Payload";
+        KNHProductResponse: Codeunit "KNH Product Response";
+        KNHRestAPIMgmt: Codeunit "KNH Rest Api Mgmt.";
         ResponseStatus: Boolean;
         HttpMethod: Enum "Http Method";
-        Client: HttpClient;
+        HttpClient: HttpClient;
         ResponseMsg: HttpResponseMessage;
 
     internal procedure GetRecord(URLToAccess: Text)
     begin
         this.CheckUrlAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHProductAPIPayload.GetProductPayload()), this.HttpMethod::GET);
-        this.KNHProductAPIResponse.GetResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.HttpClient, this.GetContentwithHeader(this.KNHProductPayload.GetProductPayload()), this.HttpMethod::GET);
+        this.KNHProductResponse.GetResponse(this.ResponseMsg);
     end;
 
     internal procedure PostRecord(URLToAccess: Text)
     begin
         this.CheckUrlAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHProductAPIPayload.PostProductPayload()), this.HttpMethod::POST);
-        this.KNHProductAPIResponse.PostResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.HttpClient, this.GetContentwithHeader(this.KNHProductPayload.PostProductPayload()), this.HttpMethod::POST);
+        this.KNHProductResponse.PostResponse(this.ResponseMsg);
     end;
 
     internal procedure PutRecord(URLToAccess: Text)
     begin
         this.CheckUrlAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHProductAPIPayload.PutProductPayload()), this.HttpMethod::PUT);
-        this.KNHProductAPIResponse.PutResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.HttpClient, this.GetContentwithHeader(this.KNHProductPayload.PutProductPayload()), this.HttpMethod::PUT);
+        this.KNHProductResponse.PutResponse(this.ResponseMsg);
     end;
 
     internal procedure PatchRecord(URLToAccess: Text)
     begin
         this.CheckUrlAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHProductAPIPayload.PatchProductPayload()), this.HttpMethod::PATCH);
-        this.KNHProductAPIResponse.PatchResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.HttpClient, this.GetContentwithHeader(this.KNHProductPayload.PatchProductPayload()), this.HttpMethod::PATCH);
+        this.KNHProductResponse.PatchResponse(this.ResponseMsg);
     end;
 
     internal procedure DeleteRecord(URLToAccess: Text)
     begin
         this.CheckUrlAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.Client, this.GetContentwithHeader(this.KNHProductAPIPayload.DeleteProductPayload()), this.HttpMethod::DELETE);
-        this.KNHProductAPIResponse.DeleteResponse(this.ResponseMsg);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.HttpClient, this.GetContentwithHeader(this.KNHProductPayload.DeleteProductPayload()), this.HttpMethod::DELETE);
+        this.KNHProductResponse.DeleteResponse(this.ResponseMsg);
     end;
 
     local procedure CheckUrlAndReset(URLToAccess: Text)
@@ -64,7 +64,7 @@ codeunit 53704 "KNH Product Integration"
     var
         contentHeaders: HttpHeaders;
     begin
-        Clear(this.Client);
+        Clear(this.HttpClient);
         if Payload <> '' then
             Content.WriteFrom(Payload);
 
