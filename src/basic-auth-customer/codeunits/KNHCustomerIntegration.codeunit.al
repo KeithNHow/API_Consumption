@@ -8,7 +8,6 @@ codeunit 53707 "KNH Customer Integration"
         KNHCustomerAPIPayload: Codeunit "KNH Customer Payload";
         KNHCustomerAPIResponse: Codeunit "KNH Customer Response";
         KNHRestApiMgmt: Codeunit "KNH Rest Api Mgmt.";
-        //client: HttpClient;
         ResponseStatus: Boolean;
         HttpMethod: Enum "Http Method";
         ResponseMsg: HttpResponseMessage;
@@ -85,11 +84,5 @@ codeunit 53707 "KNH Customer Integration"
         AuthString := StrSubstNo('%1:%2', this.Username, this.Password);
         AuthString := Base64Convert.ToBase64(AuthString);
         AuthString := StrSubstNo(AuthStringLbl, AuthString);
-    end;
-
-    procedure SetUsernameandPassword(PassedUsername: Text; Passedpassword: Text)
-    begin
-        this.Username := PassedUsername;
-        this.Password := Passedpassword;
     end;
 }

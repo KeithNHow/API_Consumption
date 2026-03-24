@@ -35,6 +35,8 @@ Page Area
     Group Product References - Website, Execute Url, Output
     Group Product Actions - GetUrl, GetLbl, same for Post, Put, Patch and Delete
 
+    LP SetUsernameandPassword
+
 Page Actions - Log Entries, Customer records, Employee records, Product records 
 
 # API Log Entries list page
@@ -67,6 +69,8 @@ EmployeeResponse.PostResponse
 
 LP CheckUrlAndReset
 LP GetContentwithHeader
+LP GetHttpRequestMessage calls GetAuthorizationHeader
+LP GetAuthroizationHeader
 
 # Customer Payload codeunit
 IP Get Employee Payload

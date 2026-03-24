@@ -77,8 +77,8 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHCustomerAPIIntegration.SetUsernameandPassword(this.Username, this.Password);
-                                this.KNHCustomerAPIIntegration.GetRecords(this.CustBasicAuthUrlToAccess);
+                                this.SetUsernameandPassword(this.Username, this.Password);
+                                this.KNHCustomerIntegration.GetRecords(this.CustBasicAuthUrlToAccess);
                             end;
                         }
                     }
@@ -98,8 +98,8 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHCustomerAPIIntegration.SetUsernameandPassword(this.Username, this.Password);
-                                this.KNHCustomerAPIIntegration.PostRecord(this.CustBasicAuthUrlToAccess);
+                                this.SetUsernameandPassword(this.Username, this.Password);
+                                this.KNHCustomerIntegration.PostRecord(this.CustBasicAuthUrlToAccess);
                             end;
                         }
                     }
@@ -119,8 +119,8 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHCustomerAPIIntegration.SetUsernameandPassword(this.Username, this.Password);
-                                this.KNHCustomerAPIIntegration.PutRecord(this.CustBasicAuthUrlToAccess);
+                                this.SetUsernameandPassword(this.Username, this.Password);
+                                this.KNHCustomerIntegration.PutRecord(this.CustBasicAuthUrlToAccess);
                             end;
                         }
                     }
@@ -140,8 +140,8 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHCustomerAPIIntegration.SetUsernameandPassword(this.Username, this.Password);
-                                this.KNHCustomerAPIIntegration.PatchRecord(this.CustBasicAuthUrlToAccess);
+                                this.SetUsernameandPassword(this.Username, this.Password);
+                                this.KNHCustomerIntegration.PatchRecord(this.CustBasicAuthUrlToAccess);
                             end;
                         }
                     }
@@ -161,8 +161,8 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHCustomerAPIIntegration.SetUsernameandPassword(this.Username, this.Password);
-                                this.KNHCustomerAPIIntegration.DeleteRecord(this.CustBasicAuthUrlToAccess);
+                                this.SetUsernameandPassword(this.Username, this.Password);
+                                this.KNHCustomerIntegration.DeleteRecord(this.CustBasicAuthUrlToAccess);
                             end;
                         }
                     }
@@ -215,7 +215,7 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHEmployeeAPIIntegration.GetRecord(this.EmployeeUrlToAccess);
+                                this.KNHEmployeeIntegration.GetRecord(this.EmployeeUrlToAccess);
                             end;
                         }
                     }
@@ -235,7 +235,7 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHEmployeeAPIIntegration.PostRecord(this.EmployeeUrlToAccess);
+                                this.KNHEmployeeIntegration.PostRecord(this.EmployeeUrlToAccess);
                             end;
                         }
                     }
@@ -255,7 +255,7 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHEmployeeAPIIntegration.PutRecord(this.EmployeeUrlToAccess);
+                                this.KNHEmployeeIntegration.PutRecord(this.EmployeeUrlToAccess);
                             end;
                         }
                     }
@@ -275,7 +275,7 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHEmployeeAPIIntegration.PatchRecord(this.EmployeeUrlToAccess);
+                                this.KNHEmployeeIntegration.PatchRecord(this.EmployeeUrlToAccess);
                             end;
                         }
                     }
@@ -295,7 +295,7 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHEmployeeAPIIntegration.DeleteRecord(this.EmployeeUrlToAccess);
+                                this.KNHEmployeeIntegration.DeleteRecord(this.EmployeeUrlToAccess);
                             end;
                         }
                     }
@@ -348,7 +348,7 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHProductAPIIntegration.GetRecord(this.ProductUrlToAccess);
+                                this.KNHProductIntegration.GetRecord(this.ProductUrlToAccess);
                             end;
                         }
                     }
@@ -368,7 +368,7 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHProductAPIIntegration.PostRecord(this.ProductUrlToAccess);
+                                this.KNHProductIntegration.PostRecord(this.ProductUrlToAccess);
                             end;
                         }
                     }
@@ -388,7 +388,7 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHProductAPIIntegration.PutRecord(this.ProductUrlToAccess);
+                                this.KNHProductIntegration.PutRecord(this.ProductUrlToAccess);
                             end;
                         }
                     }
@@ -408,7 +408,7 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHProductAPIIntegration.PatchRecord(this.ProductUrlToAccess);
+                                this.KNHProductIntegration.PatchRecord(this.ProductUrlToAccess);
                             end;
                         }
                     }
@@ -428,7 +428,7 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.KNHProductAPIIntegration.DeleteRecord(this.ProductUrlToAccess);
+                                this.KNHProductIntegration.DeleteRecord(this.ProductUrlToAccess);
                             end;
                         }
                     }
@@ -487,9 +487,9 @@ page 53700 "KNH API Interface"
     end;
 
     var
-        KNHCustomerAPIIntegration: Codeunit "KNH Customer Integration";
-        KNHEmployeeAPIIntegration: Codeunit "KNH Employee Integration";
-        KNHProductAPIIntegration: Codeunit "KNH Product Integration";
+        KNHCustomerIntegration: Codeunit "KNH Customer Integration";
+        KNHEmployeeIntegration: Codeunit "KNH Employee Integration";
+        KNHProductIntegration: Codeunit "KNH Product Integration";
         CustBasicAuthUrlLbl: Label 'https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_customer';
         DeleteLbl: Label 'Delete';
         DeleteUrlLbl: Label 'Generate Delete URL';
@@ -506,4 +506,10 @@ page 53700 "KNH API Interface"
         Password, Username : Text;
         CustBasicAuthResponse, EmployeeNoAuthResponse, ProductNoAuthResponse : Text[1024];
         CustBasicAuthUrlToAccess, EmployeeUrlToAccess, ProductUrlToAccess : Text[1024];
+
+    local procedure SetUsernameandPassword(PassedUsername: Text; Passedpassword: Text)
+    begin
+        this.Username := PassedUsername;
+        this.Password := Passedpassword;
+    end;
 }
