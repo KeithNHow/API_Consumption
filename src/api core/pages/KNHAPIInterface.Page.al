@@ -77,7 +77,6 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.SetUsernameandPassword(this.Username, this.Password);
                                 this.KNHCustomerIntegration.GetRecords(this.CustBasicAuthUrlToAccess);
                             end;
                         }
@@ -98,7 +97,6 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.SetUsernameandPassword(this.Username, this.Password);
                                 this.KNHCustomerIntegration.PostRecord(this.CustBasicAuthUrlToAccess);
                             end;
                         }
@@ -119,7 +117,6 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.SetUsernameandPassword(this.Username, this.Password);
                                 this.KNHCustomerIntegration.PutRecord(this.CustBasicAuthUrlToAccess);
                             end;
                         }
@@ -140,7 +137,6 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.SetUsernameandPassword(this.Username, this.Password);
                                 this.KNHCustomerIntegration.PatchRecord(this.CustBasicAuthUrlToAccess);
                             end;
                         }
@@ -161,7 +157,6 @@ page 53700 "KNH API Interface"
                             ShowCaption = false;
                             trigger OnDrillDown()
                             begin
-                                this.SetUsernameandPassword(this.Username, this.Password);
                                 this.KNHCustomerIntegration.DeleteRecord(this.CustBasicAuthUrlToAccess);
                             end;
                         }
@@ -506,10 +501,4 @@ page 53700 "KNH API Interface"
         Password, Username : Text;
         CustBasicAuthResponse, EmployeeNoAuthResponse, ProductNoAuthResponse : Text[1024];
         CustBasicAuthUrlToAccess, EmployeeUrlToAccess, ProductUrlToAccess : Text[1024];
-
-    local procedure SetUsernameandPassword(PassedUsername: Text; Passedpassword: Text)
-    begin
-        this.Username := PassedUsername;
-        this.Password := Passedpassword;
-    end;
 }

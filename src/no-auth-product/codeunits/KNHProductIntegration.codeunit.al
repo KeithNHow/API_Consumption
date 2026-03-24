@@ -1,5 +1,6 @@
 namespace KNHAPIConsumption;
 using System.RestClient;
+using System.Text;
 
 codeunit 53704 "KNH Product Integration"
 {
@@ -11,11 +12,13 @@ codeunit 53704 "KNH Product Integration"
         HttpMethod: Enum "Http Method";
         HttpClient: HttpClient;
         ResponseMsg: HttpResponseMessage;
+        Password, Username : Text;
 
     internal procedure GetRecord(URLToAccess: Text)
     begin
         this.CheckUrlAndReset(URLToAccess);
-        this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.HttpClient, this.GetContentwithHeader(this.KNHProductPayload.GetProductPayload()), this.HttpMethod::GET);
+        this.ResponseMsg := this.KNHRestApiMgmt.MakeRequest(URLToAccess, this.GetHttpRequestMessage(this.KNHProductPayload.GetProductPayload()), this.HttpMethod::GET);
+        //this.ResponseMsg := this.KNHRestApiMgmt.MakeContentRequest(URLToAccess, this.HttpClient, this.GetContentwithHeader(this.KNHProductPayload.GetProductPayload()), this.HttpMethod::GET);
         this.KNHProductResponse.GetResponse(this.ResponseMsg);
     end;
 
@@ -71,5 +74,32 @@ codeunit 53704 "KNH Product Integration"
         Content.GetHeaders(contentHeaders);
         contentHeaders.Clear();
         contentHeaders.Add('Content-Type', 'application/json');
+    end;
+
+    local procedure GetHttpRequestMessage(payload: Text) RequestMessage: HttpRequestMessage
+    var
+        HttpContent: HttpContent;
+        ContentHeader, RequestHeader : HttpHeaders;
+    begin
+        RequestMessage.GetHeaders(RequestHeader);
+        RequestHeader.Add('Authorization', this.GetAuthroizationHeader());
+        RequestHeader.Add('If-Match', '*');
+
+        HttpContent.WriteFrom(payload);
+        HttpContent.GetHeaders(ContentHeader);
+        ContentHeader.Remove('Content-Type');
+        ContentHeader.Add('Content-Type', 'application/json');
+
+        RequestMessage.Content(HttpContent);
+    end;
+
+    local procedure GetAuthroizationHeader() AuthString: Text
+    var
+        Base64Convert: Codeunit "Base64 Convert";
+        AuthStringLbl: Label 'Basic %1', Comment = '%1 = Username';
+    begin
+        AuthString := StrSubstNo('%1:%2', 'keithhow@metronet.co.uk', 'ChelseaBlue@9238');
+        AuthString := Base64Convert.ToBase64(AuthString);
+        AuthString := StrSubstNo(AuthStringLbl, AuthString);
     end;
 }

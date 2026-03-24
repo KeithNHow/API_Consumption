@@ -11,11 +11,11 @@ codeunit 53708 "KNH Customer Payload"
     var
         JsonPayload: JsonObject;
     begin
-        JsonPayload.Add('Name', 'Keith How');
-        JsonPayload.Add('Address', 'Shepherds Bush');
-        JsonPayload.Add('Address 2', 'London');
-        JsonPayload.Add('Phone No.', '+44 (0) 7816 509415');
-        JsonPayload.Add('Email', 'keithhow@metronet.co.com');
+        JsonPayload.Add('Name', '');
+        JsonPayload.Add('Address', '');
+        JsonPayload.Add('Address 2', '');
+        JsonPayload.Add('Phone No.', '');
+        JsonPayload.Add('Email', '');
         JsonPayload.WriteTo(Payload);
     end;
 
@@ -27,8 +27,8 @@ codeunit 53708 "KNH Customer Payload"
     var
         JsonPayload: JsonObject;
     begin
-        JsonPayload.Add('Name', 'Mark How');
-        JsonPayload.Add('Email', 'markhow@metronet.co.uk');
+        JsonPayload.Add('Name', '');
+        JsonPayload.Add('Email', '');
         JsonPayload.WriteTo(Payload);
     end;
 
