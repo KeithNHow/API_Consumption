@@ -38,13 +38,6 @@
     "CRS.FileNamePattern": "<ObjectName>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternExtensions": "<ObjectName>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternPageCustomizations": "<ObjectName>.<ObjectTypeShortPascalCase>.al",
-    "github.copilot.advanced": {
-        "authProvider":"github"
-    },
-    "github.copilot.preferredAccount": "KeithNHow",
     "github.copilot.chat.scopeSelection": true,
-    "github.copilot.chat.startDebugging.enabled": true,
-    "github.copilot.chat.generateTests.codeLens": true,
-    "github.copilot.chat.inlineChatCompletionTrigger.enabled": true,
-    "github.copilot.chat.editor.temporalContext.enabled": true
+    "github.copilot.chat.agent.autoFix": true
 }
