@@ -1,3 +1,6 @@
+/// <summary>
+/// This list page is used to display and manage the details of products imported from KNH API.
+/// </summary>
 namespace KNHAPIConsumption;
 
 page 53704 "KNH Products"

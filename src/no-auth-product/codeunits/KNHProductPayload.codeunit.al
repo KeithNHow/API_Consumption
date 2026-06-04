@@ -1,3 +1,6 @@
+/// <summary>
+/// Codeunit to generate payload for KNH Product API calls.
+/// </summary>
 namespace KNHAPIConsumption;
 
 codeunit 53705 "KNH Product Payload"

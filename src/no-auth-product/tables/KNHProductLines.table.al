@@ -1,3 +1,6 @@
+///<summary>
+/// This table is used to store the lines of products imported from KNH API. It includes fields for product ID, line number, parameter, and value. The table has a composite primary key on the product ID and line number. It also includes a trigger to automatically assign a line number if it is not provided during insertion, ensuring that line numbers are unique for each product header.
+///</summary>
 namespace KNHAPIConsumption;
 
 table 53703 "KNH Product Lines"

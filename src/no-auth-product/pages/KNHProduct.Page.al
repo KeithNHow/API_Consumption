@@ -1,3 +1,6 @@
+///<summary>
+/// This card page is used to display and manage the details of products imported from KNH API.
+/// </summary>
 namespace KNHAPIConsumption;
 
 page 53705 "KNH Product"

@@ -1,8 +1,6 @@
 ///<summary>
 /// This page is the page that controls the API imports. It contains groups for Customer, Employee and Product.
-/// Customer Group is made up of References and Actions
-/// References - website url, excuting website url, username, password, output
-/// Actions -   
+/// Each group is is sub-divided into Reference and Action groups. The ref. group has fields for website URL, executing URL, username, password and output. The Action group has grids for Get, Post, Put, Patch and Delete actions. Each grid has two fields - one to set the URL to access and another to execute the action. The page also has a navigation area with actions to view API log entries and records for each of the three entities.   
 ///</summary>
 namespace KNHAPIConsumption;
 

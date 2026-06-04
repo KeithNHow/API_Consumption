@@ -1,7 +1,7 @@
 ///<summary>
-/// MakeContentRequest - Receives values for Url, Httpclient, HttpContent, HttpMethod, HttpResponse, Checks which HttpMethod has made call, and calls log trans proc.
-/// MakeRequest - Receives values for Url, HttpRequest, HttpMethod, HttpResponse, Checks which HttpMethod has made call, and calls log trans proc
-/// LogTransaction - Recives values for url, HttpMethod, RequestMessage, ResponseMessage, ResponseStatus, Reads content and calls AddNewLogEntry proc
+/// MakeContentRequest - This procedure receives values for Url, Httpclient, HttpContent, HttpMethod, HttpResponse, Checks which HttpMethod has made thecall, and calls the log transansaction procedure.
+/// MakeRequest - This procedure receives values for Url, HttpRequest, HttpMethod, HttpResponse, Checks which HttpMethod has made call, and calls the log transaction procedure.
+/// LogTransaction - This procedure receives values for url, HttpMethod, RequestMessage, ResponseMessage, ResponseStatus, Reads content and calls AddNewLogEntry procedure.
 ///</summary>
 namespace KNHAPIConsumption;
 

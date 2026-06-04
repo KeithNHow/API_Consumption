@@ -1,3 +1,6 @@
+/// <summary>
+/// This codeunit is responsible for processing the responses received from the KNH API. It reviews the status codes of the responses, extracts the relevant data, and writes it into the database tables accordingly.
+/// </summary>
 namespace KNHAPIConsumption;
 
 codeunit 53706 "KNH Product Response"
